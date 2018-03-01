@@ -47,22 +47,10 @@ class GitlabUnfurler implements EventSubscriberInterface
 
     public function unfurl(UnfurlEvent $event)
     {
-        foreach ($this->getMatchingLinks($event) as $link) {
+        foreach ($event->getMatchingLinks($this->domain) as $link) {
             $url = $link['url'];
             $unfurl = [];
             $event->addUnfurl($url, $unfurl);
-        }
-    }
-
-    private function getMatchingLinks(UnfurlEvent $event)
-    {
-        foreach ($event->getLinks() as $link) {
-            $domain = $link['domain'] ?? null;
-            if ($domain !== $this->domain) {
-                continue;
-            }
-
-            yield $link;
         }
     }
 }
