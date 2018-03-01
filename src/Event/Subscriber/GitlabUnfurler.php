@@ -2,17 +2,12 @@
 
 namespace GitlabSlackUnfurl\Event\Subscriber;
 
-use DateTime;
-use DateTimeZone;
-use Eventum_RPC;
-use Eventum_RPC_Exception;
-use InvalidArgumentException;
+use Gitlab;
 use Psr\Log\LoggerInterface;
 use SlackUnfurl\Event\Events;
 use SlackUnfurl\Event\UnfurlEvent;
 use SlackUnfurl\LoggerTrait;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Gitlab;
 
 class GitlabUnfurler implements EventSubscriberInterface
 {
@@ -28,8 +23,7 @@ class GitlabUnfurler implements EventSubscriberInterface
         Gitlab\Client $apiClient,
         string $domain,
         LoggerInterface $logger
-    )
-    {
+    ) {
         $this->domain = $domain;
         $this->apiClient = $apiClient;
         $this->logger = $logger;
@@ -48,9 +42,32 @@ class GitlabUnfurler implements EventSubscriberInterface
     public function unfurl(UnfurlEvent $event)
     {
         foreach ($event->getMatchingLinks($this->domain) as $link) {
-            $url = $link['url'];
-            $unfurl = [];
-            $event->addUnfurl($url, $unfurl);
+            $unfurl = $this->getIssueUnfurl($link['url']);
+            if ($unfurl) {
+                $event->addUnfurl($link['url'], $unfurl);
+            }
         }
+    }
+
+    private function getIssueUnfurl(string $url)
+    {
+        $issue = $this->getIssueDetails($url);
+        $this->debug('issue', ['issue' => $issue]);
+        if (!$issue) {
+            return null;
+        }
+
+        return [
+            'title' => "<$url|#{$issue['iid']}>: {$issue['title']}",
+        ];
+    }
+
+    private function getIssueDetails(string $url)
+    {
+        if (!preg_match("#^https?://\Q{$this->domain}\E/(?P<path>.+)/issues/(?P<id>\d+)#", $url, $m)) {
+            return null;
+        }
+
+        return $this->apiClient->issues->show($m['path'], $m['id']);
     }
 }
