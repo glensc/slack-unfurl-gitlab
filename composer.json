@@ -2,7 +2,6 @@
     "name": "glen/slack-unfurl-gitlab",
     "description": "GitLab links unfurler for slack-unfurl",
     "license": "MIT",
-    "type": "project",
     "config": {
         "sort-packages": true
     },
