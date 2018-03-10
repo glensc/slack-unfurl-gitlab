@@ -2,8 +2,9 @@
 
 namespace GitlabSlackUnfurl\Event\Subscriber;
 
-use Gitlab;
+use GitlabSlackUnfurl\Route;
 use Psr\Log\LoggerInterface;
+use SlackUnfurl\CommandResolver;
 use SlackUnfurl\Event\Events;
 use SlackUnfurl\Event\UnfurlEvent;
 use SlackUnfurl\LoggerTrait;
@@ -13,19 +14,28 @@ class GitlabUnfurler implements EventSubscriberInterface
 {
     use LoggerTrait;
 
-    /** @var Gitlab\Client */
-    private $apiClient;
+    private const ROUTES = [
+        'issue' => Route\Issue::class,
+    ];
 
     /** @var string */
     private $domain;
 
+    /** @var Route\RouteMatcher */
+    private $routes;
+
+    /** @var CommandResolver */
+    private $commandResolver;
+
     public function __construct(
-        Gitlab\Client $apiClient,
+        Route\RouteMatcher $routes,
+        CommandResolver $commandResolver,
         string $domain,
         LoggerInterface $logger
     ) {
         $this->domain = $domain;
-        $this->apiClient = $apiClient;
+        $this->routes = $routes;
+        $this->commandResolver = $commandResolver;
         $this->logger = $logger;
     }
 
@@ -42,32 +52,26 @@ class GitlabUnfurler implements EventSubscriberInterface
     public function unfurl(UnfurlEvent $event)
     {
         foreach ($event->getMatchingLinks($this->domain) as $link) {
-            $unfurl = $this->getIssueUnfurl($link['url']);
+            $unfurl = $this->unfurlByUrl($link['url']);
             if ($unfurl) {
                 $event->addUnfurl($link['url'], $unfurl);
             }
         }
     }
 
-    private function getIssueUnfurl(string $url)
+    private function unfurlByUrl(string $url)
     {
-        $issue = $this->getIssueDetails($url);
-        $this->debug('issue', ['issue' => $issue]);
-        if (!$issue) {
+        $match = $this->routes->match($url);
+        if (!$match) {
             return null;
         }
 
-        return [
-            'title' => "<$url|#{$issue['iid']}>: {$issue['title']}",
-        ];
-    }
+        [$router, $matches] = $match;
 
-    private function getIssueDetails(string $url)
-    {
-        if (!preg_match("#^https?://\Q{$this->domain}\E/(?P<path>.+)/issues/(?P<id>\d+)#", $url, $m)) {
-            return null;
-        }
+        $command = $this->commandResolver
+            ->configure(self::ROUTES)
+            ->resolve($router);
 
-        return $this->apiClient->issues->show($m['path'], $m['id']);
+        return $command->unfurl($url, $matches);
     }
 }

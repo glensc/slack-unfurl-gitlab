@@ -4,9 +4,11 @@ namespace GitlabSlackUnfurl\ServiceProvider;
 
 use Gitlab;
 use GitlabSlackUnfurl\Event\Subscriber\GitlabUnfurler;
+use GitlabSlackUnfurl\Route;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Silex\Api\EventListenerProviderInterface;
+use SlackUnfurl\CommandResolver;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class GitlabUnfurlServiceProvider implements ServiceProviderInterface, EventListenerProviderInterface
@@ -19,6 +21,10 @@ class GitlabUnfurlServiceProvider implements ServiceProviderInterface, EventList
         $app['gitlab.url'] = getenv('GITLAB_URL');
         $app['gitlab.api_token'] = getenv('GITLAB_API_TOKEN');
 
+        $app['gitlab.domain'] = function ($app) {
+            return parse_url($app['gitlab.url'], PHP_URL_HOST);
+        };
+
         $app[Gitlab\Client::class] = function ($app) {
             $client = Gitlab\Client::create($app['gitlab.url']);
             $client->authenticate($app['gitlab.api_token'], Gitlab\Client::AUTH_HTTP_TOKEN);
@@ -26,12 +32,26 @@ class GitlabUnfurlServiceProvider implements ServiceProviderInterface, EventList
             return $client;
         };
 
-        $app[GitlabUnfurler::class] = function ($app) {
-            $domain = parse_url($app['gitlab.url'], PHP_URL_HOST);
+        $app[CommandResolver::class] = function ($app) {
+            return new CommandResolver($app);
+        };
 
+        $app[GitlabUnfurler::class] = function ($app) {
             return new GitlabUnfurler(
+                $app[Route\RouteMatcher::class],
+                $app[CommandResolver::class],
+                $app['gitlab.domain'],
+                $app['logger']
+            );
+        };
+
+        $app[Route\RouteMatcher::class] = function ($app) {
+            return new Route\RouteMatcher($app['gitlab.domain']);
+        };
+
+        $app[Route\Issue::class] = function ($app) {
+            return new Route\Issue(
                 $app[Gitlab\Client::class],
-                $domain,
                 $app['logger']
             );
         };
