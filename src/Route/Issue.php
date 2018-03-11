@@ -37,8 +37,6 @@ class Issue
 
     private function getIssueDetails(array $parts)
     {
-        $path = "{$parts['owner']}/{$parts['repo']}";
-
-        return $this->apiClient->issues->show($path, $parts['number']);
+        return $this->apiClient->issues->show($parts['project_path'], $parts['number']);
     }
 }
