@@ -2,6 +2,8 @@
 
 namespace GitlabSlackUnfurl\Route;
 
+use DateTime;
+use DateTimeZone;
 use Generator;
 use Gitlab;
 use Psr\Log\LoggerInterface;
@@ -13,6 +15,8 @@ class Issue
 
     /** @var Gitlab\Client */
     private $apiClient;
+    /** @var DateTimeZone */
+    private $utc;
 
     public function __construct(
         Gitlab\Client $apiClient,
@@ -20,6 +24,7 @@ class Issue
     ) {
         $this->apiClient = $apiClient;
         $this->logger = $logger;
+        $this->utc = new DateTimeZone('UTC');
     }
 
     public function unfurl(string $url, array $parts)
@@ -34,6 +39,7 @@ class Issue
         return [
             'title' => "<$url|#{$issue['iid']}>: {$issue['title']}",
             'color' => '#E24329',
+            'ts' => (new DateTime($issue['created_at'], $this->utc))->getTimestamp(),
             'footer' => "Created by {$this->formatAuthor($issue['author'])}",
             'fields' => iterator_to_array($this->getFields($issue)),
         ];
