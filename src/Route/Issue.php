@@ -33,6 +33,7 @@ class Issue
 
         return [
             'title' => "<$url|#{$issue['iid']}>: {$issue['title']}",
+            'color' => '#E24329',
             'footer' => "Created by {$this->formatAuthor($issue['author'])}",
             'fields' => iterator_to_array($this->getFields($issue)),
         ];
