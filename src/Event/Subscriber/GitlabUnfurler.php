@@ -8,6 +8,7 @@ use SlackUnfurl\CommandResolver;
 use SlackUnfurl\Event\Events;
 use SlackUnfurl\Event\UnfurlEvent;
 use SlackUnfurl\LoggerTrait;
+use SlackUnfurl\Route\RouteNotMatchedException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class GitlabUnfurler implements EventSubscriberInterface
@@ -22,19 +23,19 @@ class GitlabUnfurler implements EventSubscriberInterface
     private $domain;
 
     /** @var Route\RouteMatcher */
-    private $routes;
+    private $routeMatcher;
 
     /** @var CommandResolver */
     private $commandResolver;
 
     public function __construct(
-        Route\RouteMatcher $routes,
+        Route\RouteMatcher $routeMatcher,
         CommandResolver $commandResolver,
         string $domain,
         LoggerInterface $logger
     ) {
         $this->domain = $domain;
-        $this->routes = $routes;
+        $this->routeMatcher = $routeMatcher;
         $this->commandResolver = $commandResolver;
         $this->logger = $logger;
     }
@@ -52,21 +53,20 @@ class GitlabUnfurler implements EventSubscriberInterface
     public function unfurl(UnfurlEvent $event)
     {
         foreach ($event->getMatchingLinks($this->domain) as $link) {
-            $unfurl = $this->unfurlByUrl($link['url']);
-            if ($unfurl) {
-                $event->addUnfurl($link['url'], $unfurl);
+            try {
+                $unfurl = $this->unfurlByUrl($link['url']);
+                if ($unfurl) {
+                    $event->addUnfurl($link['url'], $unfurl);
+                }
+            } catch (RouteNotMatchedException $e) {
+                $this->debug("gitlab: {$e->getMessage()}");
             }
         }
     }
 
     private function unfurlByUrl(string $url)
     {
-        $match = $this->routes->match($url);
-        if (!$match) {
-            return null;
-        }
-
-        [$router, $matches] = $match;
+        [$router, $matches] = $this->routeMatcher->match($url);
 
         $command = $this->commandResolver
             ->configure(self::ROUTES)

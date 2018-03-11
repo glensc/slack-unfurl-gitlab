@@ -2,30 +2,19 @@
 
 namespace GitlabSlackUnfurl\Route;
 
-class RouteMatcher
+use SlackUnfurl\Route\RouteMatcher as BaseRouteMatcher;
+
+class RouteMatcher extends BaseRouteMatcher
 {
     /** @var string */
     private $domain;
-    /** @var array */
-    private $routes;
 
     public function __construct(string $domain)
     {
         $this->domain = $domain;
     }
 
-    public function match(string $url): array
-    {
-        foreach ($this->getRoutes() as $route => $pattern) {
-            if (preg_match("!{$pattern}!", $url, $matches)) {
-                return [$route, $matches];
-            }
-        }
-
-        return null;
-    }
-
-    private function getRoutes(): array
+    protected function getRoutes(): array
     {
         return $this->routes = $this->routes ?: $this->buildRoutes($this->domain);
     }
@@ -35,7 +24,7 @@ class RouteMatcher
      * @return array
      * @see https://github.com/integrations/slack/blob/d9fc0648c2a0158bf4bf32cf527c5675604501d4/lib/github-url.js
      */
-    private function buildRoutes($domain = 'gitlab.com'): array
+    protected function buildRoutes($domain = 'gitlab.com'): array
     {
         $base = "(?:https://\Q{$domain}\E/)?";
         $owner = '(?P<owner>[^/]+)';
