@@ -8,7 +8,7 @@ use SlackUnfurl\CommandResolver;
 use SlackUnfurl\Event\Events;
 use SlackUnfurl\Event\UnfurlEvent;
 use SlackUnfurl\LoggerTrait;
-use SlackUnfurl\Route\RouteNotMatchedException;
+use SlackUnfurl\RuntimeException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class GitlabUnfurler implements EventSubscriberInterface
@@ -58,7 +58,7 @@ class GitlabUnfurler implements EventSubscriberInterface
                 if ($unfurl) {
                     $event->addUnfurl($link['url'], $unfurl);
                 }
-            } catch (RouteNotMatchedException $e) {
+            } catch (RuntimeException $e) {
                 $this->debug("gitlab: {$e->getMessage()}");
             }
         }
