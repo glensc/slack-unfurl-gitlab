@@ -10,7 +10,7 @@ use Psr\Log\LoggerInterface;
 use SlackUnfurl\LoggerTrait;
 use SlackUnfurl\SlackClient;
 
-class Issue
+class MergeRequest
 {
     use LoggerTrait;
 
@@ -34,10 +34,10 @@ class Issue
 
     public function unfurl(string $url, array $parts)
     {
-        $issue = $this->getIssueDetails($parts);
-        $this->debug('issue', ['issue' => $issue]);
+        $mr = $this->getDetails($parts);
+        $this->debug('merge_request', ['merge_request' => $mr]);
 
-        if (!$issue) {
+        if (!$mr) {
             return null;
         }
 
@@ -45,22 +45,22 @@ class Issue
             'title' => sprintf(
                 '<%s|#%d>: %s',
                 $this->slackClient->urlencode($url),
-                $issue['iid'],
-                $this->slackClient->escape($issue['title'])
+                $mr['iid'],
+                $this->slackClient->escape($mr['title'])
             ),
             'color' => '#E24329',
-            'ts' => (new DateTime($issue['created_at'], $this->utc))->getTimestamp(),
-            'footer' => "Created by {$this->formatAuthor($issue['author'])}",
-            'fields' => iterator_to_array($this->getFields($issue)),
+            'ts' => (new DateTime($mr['created_at'], $this->utc))->getTimestamp(),
+            'footer' => "Created by {$this->formatAuthor($mr['author'])}",
+            'fields' => iterator_to_array($this->getFields($mr)),
         ];
     }
 
     /**
      * Skip empty fields, join array and generators
      */
-    private function getFields(array $issue)
+    private function getFields(array $object)
     {
-        foreach ($this->buildFields($issue) as $field) {
+        foreach ($this->buildFields($object) as $field) {
             if ($field['value'] instanceof Generator) {
                 $field['value'] = iterator_to_array($field['value']);
             }
@@ -77,27 +77,20 @@ class Issue
         }
     }
 
-    private function buildFields(array $issue)
+    private function buildFields(array $object)
     {
         yield [
-            'title' => 'Assignees',
-            'value' => $this->getAssignees($issue['assignees']),
+            'title' => 'Assignee',
+            'value' => $this->formatAuthor($object['assignee']),
         ];
         yield [
             'title' => 'Labels',
-            'value' => $issue['labels'] ?? null,
+            'value' => $object['labels'] ?? null,
         ];
         yield [
             'title' => 'Milestone',
-            'value' => $issue['milestone']['title'] ?? null,
+            'value' => $object['milestone']['title'] ?? null,
         ];
-    }
-
-    private function getAssignees(array $assignees)
-    {
-        foreach ($assignees as $assignee) {
-            yield $this->formatAuthor($assignee);
-        }
     }
 
     private function formatAuthor(array $author)
@@ -108,8 +101,8 @@ class Issue
         );
     }
 
-    private function getIssueDetails(array $parts)
+    private function getDetails(array $parts)
     {
-        return $this->apiClient->issues->show($parts['project_path'], $parts['number']);
+        return $this->apiClient->merge_requests->show($parts['project_path'], $parts['number']);
     }
 }

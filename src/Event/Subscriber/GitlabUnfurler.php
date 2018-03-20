@@ -17,6 +17,7 @@ class GitlabUnfurler implements EventSubscriberInterface
 
     private const ROUTES = [
         'issue' => Route\Issue::class,
+        'merge_request' => Route\MergeRequest::class,
     ];
 
     /** @var string */
