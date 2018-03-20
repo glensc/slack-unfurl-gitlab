@@ -72,8 +72,12 @@ abstract class AbstractRouteHandler
         return (new DateTime($object['created_at'], $this->utc))->getTimestamp();
     }
 
-    protected function formatAuthor(array $author)
+    protected function formatAuthor(?array $author)
     {
+        if (!$author) {
+            return null;
+        }
+
         return sprintf('<%s|%s>',
             $this->slackClient->urlencode($author['web_url']),
             $this->slackClient->escape($author['name'])
