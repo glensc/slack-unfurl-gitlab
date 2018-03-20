@@ -2,9 +2,9 @@
 
 namespace GitlabSlackUnfurl\Route;
 
-use SlackUnfurl\Route\RouteMatcher as BaseRouteMatcher;
+use SlackUnfurl\Route\RouteMatcher;
 
-class RouteMatcher extends BaseRouteMatcher
+class GitLabRoutes extends RouteMatcher
 {
     /** @var string */
     private $domain;

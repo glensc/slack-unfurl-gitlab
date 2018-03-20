@@ -3,7 +3,7 @@
 namespace GitlabSlackUnfurl\Test;
 
 use Gitlab;
-use GitlabSlackUnfurl\Route\RouteMatcher;
+use GitlabSlackUnfurl\Route\GitLabRoutes;
 
 class RouteTest extends TestCase
 {
@@ -15,7 +15,7 @@ class RouteTest extends TestCase
      */
     public function testRoutes(string $route, string $url, array $parts)
     {
-        $router = new RouteMatcher($this->domain);
+        $router = new GitLabRoutes($this->domain);
         $match = $router->match($url);
         $this->assertEquals($route, $match[0]);
         $this->assertEquals($parts, $match[1]);

@@ -39,15 +39,15 @@ class GitlabUnfurlServiceProvider implements ServiceProviderInterface, EventList
 
         $app[GitlabUnfurler::class] = function ($app) {
             return new GitlabUnfurler(
-                $app[Route\RouteMatcher::class],
+                $app[Route\GitLabRoutes::class],
                 $app[CommandResolver::class],
                 $app['gitlab.domain'],
                 $app['logger']
             );
         };
 
-        $app[Route\RouteMatcher::class] = function ($app) {
-            return new Route\RouteMatcher($app['gitlab.domain']);
+        $app[Route\GitLabRoutes::class] = function ($app) {
+            return new Route\GitLabRoutes($app['gitlab.domain']);
         };
 
         $app[Route\Issue::class] = function ($app) {

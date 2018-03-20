@@ -8,6 +8,7 @@ use SlackUnfurl\CommandResolver;
 use SlackUnfurl\Event\Events;
 use SlackUnfurl\Event\UnfurlEvent;
 use SlackUnfurl\LoggerTrait;
+use SlackUnfurl\Route\RouteMatcher;
 use SlackUnfurl\RuntimeException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -23,14 +24,14 @@ class GitlabUnfurler implements EventSubscriberInterface
     /** @var string */
     private $domain;
 
-    /** @var Route\RouteMatcher */
+    /** @var RouteMatcher */
     private $routeMatcher;
 
     /** @var CommandResolver */
     private $commandResolver;
 
     public function __construct(
-        Route\RouteMatcher $routeMatcher,
+        RouteMatcher $routeMatcher,
         CommandResolver $commandResolver,
         string $domain,
         LoggerInterface $logger
