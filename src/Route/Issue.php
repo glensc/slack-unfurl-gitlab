@@ -8,6 +8,7 @@ use Generator;
 use Gitlab;
 use Psr\Log\LoggerInterface;
 use SlackUnfurl\LoggerTrait;
+use SlackUnfurl\SlackClient;
 
 class Issue
 {
@@ -15,14 +16,18 @@ class Issue
 
     /** @var Gitlab\Client */
     private $apiClient;
+    /** @var SlackClient */
+    private $slackClient;
     /** @var DateTimeZone */
     private $utc;
 
     public function __construct(
         Gitlab\Client $apiClient,
+        SlackClient $slackClient,
         LoggerInterface $logger
     ) {
         $this->apiClient = $apiClient;
+        $this->slackClient = $slackClient;
         $this->logger = $logger;
         $this->utc = new DateTimeZone('UTC');
     }
@@ -37,7 +42,12 @@ class Issue
         }
 
         return [
-            'title' => "<$url|#{$issue['iid']}>: {$issue['title']}",
+            'title' => sprintf(
+                "<%s|#%d>: %s",
+                $this->slackClient->urlencode($url),
+                $issue['iid'],
+                $this->slackClient->escape($issue['title'])
+            ),
             'color' => '#E24329',
             'ts' => (new DateTime($issue['created_at'], $this->utc))->getTimestamp(),
             'footer' => "Created by {$this->formatAuthor($issue['author'])}",
@@ -92,7 +102,10 @@ class Issue
 
     private function formatAuthor(array $author)
     {
-        return "<{$author['web_url']}|{$author['name']}>";
+        return sprintf('<%s|%s>',
+            $this->slackClient->urlencode($author['web_url']),
+            $this->slackClient->escape($author['name'])
+        );
     }
 
     private function getIssueDetails(array $parts)

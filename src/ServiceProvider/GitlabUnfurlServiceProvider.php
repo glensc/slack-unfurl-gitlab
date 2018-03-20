@@ -9,6 +9,7 @@ use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Silex\Api\EventListenerProviderInterface;
 use SlackUnfurl\CommandResolver;
+use SlackUnfurl\SlackClient;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class GitlabUnfurlServiceProvider implements ServiceProviderInterface, EventListenerProviderInterface
@@ -52,6 +53,7 @@ class GitlabUnfurlServiceProvider implements ServiceProviderInterface, EventList
         $app[Route\Issue::class] = function ($app) {
             return new Route\Issue(
                 $app[Gitlab\Client::class],
+                $app[SlackClient::class],
                 $app['logger']
             );
         };
