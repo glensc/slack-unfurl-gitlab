@@ -80,6 +80,24 @@ class RouteTest extends TestCase
                 'repo' => 'gitlab-ce',
                 'number' => '6721',
             ]],
+            ['merge_request', 'https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721/commits', [
+                'namespace' => 'gitlab-org/',
+                'project_path' => 'gitlab-org/gitlab-ce',
+                'repo' => 'gitlab-ce',
+                'number' => '6721',
+            ]],
+            ['merge_request', 'https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721/pipelines', [
+                'namespace' => 'gitlab-org/',
+                'project_path' => 'gitlab-org/gitlab-ce',
+                'repo' => 'gitlab-ce',
+                'number' => '6721',
+            ]],
+            ['merge_request', 'https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721/diffs', [
+                'namespace' => 'gitlab-org/',
+                'project_path' => 'gitlab-org/gitlab-ce',
+                'repo' => 'gitlab-ce',
+                'number' => '6721',
+            ]],
             ['note', 'https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721#note_16627667', [
                 'namespace' => 'gitlab-org/',
                 'project_path' => 'gitlab-org/gitlab-ce',
