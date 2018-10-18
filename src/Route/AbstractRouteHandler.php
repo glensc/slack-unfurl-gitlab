@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeZone;
 use Generator;
 use Gitlab;
+use GitlabSlackUnfurl\Traits\SanitizeTextTrait;
 use Iterator;
 use Psr\Log\LoggerInterface;
 use SlackUnfurl\LoggerTrait;
@@ -15,6 +16,7 @@ use function is_array;
 abstract class AbstractRouteHandler
 {
     use LoggerTrait;
+    use SanitizeTextTrait;
 
     /** @var Gitlab\Client */
     protected $apiClient;
@@ -148,13 +150,5 @@ abstract class AbstractRouteHandler
                 yield $field;
             }
         }
-    }
-
-    protected function sanitizeText(string $text): string
-    {
-        $text = str_replace("\r\n", "\n", $text);
-        $text = trim($text);
-
-        return $text;
     }
 }
