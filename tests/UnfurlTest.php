@@ -47,8 +47,11 @@ class UnfurlTest extends TestCase
     public function testNote(string $url, array $parts, array $expected): void
     {
         /** @var Route\Note $unfurler */
-        $response = new MockJsonResponse('GitLab/note.json');
-        $unfurler = $this->getRouteHandler(Route\Note::class, [$response]);
+        $responses = [
+            new MockJsonResponse('GitLab/issue-31422.json'),
+            new MockJsonResponse('GitLab/note.json'),
+        ];
+        $unfurler = $this->getRouteHandler(Route\Note::class, $responses);
 
         $result = $unfurler->unfurl($url, $parts);
         $this->assertEquals($expected, $result);
