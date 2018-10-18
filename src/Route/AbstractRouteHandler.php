@@ -152,6 +152,9 @@ abstract class AbstractRouteHandler
 
     protected function sanitizeText(string $text): string
     {
-        return str_replace("\r\n", "\n", $text);
+        $text = str_replace("\r\n", "\n", $text);
+        $text = trim($text);
+
+        return $text;
     }
 }

@@ -13,7 +13,6 @@
             ![image](/uploads/861d44489c2de9ef1510b0d44bf8ebc9/image.png)
             
             This can be solved by disabling the unfurl for the login page.
-            
         color: '#E24329'
         ts: 1453816324
         footer: 'Created by <https://gitlab.com/jvanbaarsen|Jeroen van Baarsen>'
