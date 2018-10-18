@@ -27,6 +27,15 @@ class Note extends AbstractRouteHandler
         return $note;
     }
 
+    /**
+     * @param array $object
+     * @return string
+     */
+    protected function getText(array $object): string
+    {
+        return $object['body'];
+    }
+
     protected function getFields(array $object): array
     {
         return [];

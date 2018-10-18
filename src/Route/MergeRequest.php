@@ -11,4 +11,13 @@ class MergeRequest extends AbstractRouteHandler
 
         return $merge_request;
     }
+
+    /**
+     * @param array $object
+     * @return string
+     */
+    protected function getText(array $object): string
+    {
+        return $object['description'];
+    }
 }

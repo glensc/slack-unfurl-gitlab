@@ -14,4 +14,13 @@ class Issue extends AbstractRouteHandler
 
         return $issue;
     }
+
+    /**
+     * @param array $object
+     * @return string
+     */
+    protected function getText(array $object): string
+    {
+        return $object['description'];
+    }
 }

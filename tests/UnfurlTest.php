@@ -70,6 +70,11 @@ class UnfurlTest extends TestCase
                 ],
                 [
                     'title' => '<https://gitlab.com/gitlab-org/gitlab-ce/issues/12733|#12733>: Disable Unfurling for the login page',
+                    'text' => "When a project is private, and you paste it into something like slack, you get the message: \"Sign In\"\r\n" .
+                        "\r\n" .
+                        "![image](/uploads/861d44489c2de9ef1510b0d44bf8ebc9/image.png)\r\n" .
+                        "\r\n" .
+                        "This can be solved by disabling the unfurl for the login page.\r\n",
                     'color' => '#E24329',
                     'ts' => 1453816324,
                     'footer' => 'Created by <https://gitlab.com/jvanbaarsen|Jeroen van Baarsen>',
@@ -98,6 +103,25 @@ class UnfurlTest extends TestCase
                 ],
                 [
                     'title' => '<https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721/commits|#6721>: Update custom_hooks.md for chained hooks support',
+                    'text' => "## What does this MR do?\n" .
+                        "\n" .
+                        "Add documentation for gitlab-org/gitlab-shell!93\n\n" .
+                        "## Are there points in the code the reviewer needs to double check?\n\n" .
+                        "## Why was this MR needed?\n\n" .
+                        "## Screenshots (if relevant)\n\n" .
+                        "## Does this MR meet the acceptance criteria?\n\n" .
+                        "- [x] [CHANGELOG](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/CHANGELOG) entry added\n" .
+                        "- [x] [Documentation created/updated](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/development/doc_styleguide.md)\n" .
+                        "- [ ] API support added\n" .
+                        "- Tests\n" .
+                        "  - [ ] Added for this feature/bug\n" .
+                        "  - [ ] All builds are passing\n" .
+                        "- [ ] Conform by the [merge request performance guides](http://docs.gitlab.com/ce/development/merge_request_performance_guidelines.html)\n" .
+                        "- [ ] Conform by the [style guides](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/CONTRIBUTING.md#style-guides)\n" .
+                        "- [ ] Branch has no merge conflicts with `master` (if you do - rebase it please)\n" .
+                        "- [x] [Squashed related commits together](https://git-scm.com/book/en/Git-Tools-Rewriting-History#Squashing-Commits)\n" .
+                        "\n" .
+                        "## What are the relevant issue numbers?",
                     'color' => '#E24329',
                     'ts' => 1475776449,
                     'footer' => 'Created by <https://gitlab.com/glensc|Elan Ruusamäe>',
@@ -137,6 +161,17 @@ class UnfurlTest extends TestCase
                 ],
                 [
                     'title' => '<https://gitlab.com/gitlab-org/gitlab-ce/issues/31422#note_28249314|#31422>: Note on issue #31422: View issue / merge request state in unfurled issue link in Slack',
+                    'text' => "@victorwu by default, Slack's proxy servers will make the request to the URL. This means a number of things:\n" .
+                        "a) if the server is inaccessible to the general internets, it won't unfurl\n" .
+                        "b) if the page requires authentication, it won't unfurl\n" .
+                        "\n" .
+                        "With a Slack App, you can do [authenticated unfurls](https://api.slack.com/docs/message-link-unfurling#authenticated_unfurls) whereby you listen to an event with a particular URL pattern and then can unfurl the link.\n" .
+                        "\n" .
+                        "Unfortunately, because the Slack App doesn't have a URL parameter (i.e. you can't tell it that my GitHub instance is https://job.gitlap.com/*) this means that self-hosted GitLab instances will need manual App configuration. Slack are looking into what can be done about this in the future.\n" .
+                        "\n" .
+                        "For now, we can certainly improve the unfurls for GitLab.com and also provide private issues with authenticated unfurls on GitLab.com. We can also use unfurl events to make links [interactive](https://api.slack.com/docs/message-link-unfurling#interactive) like this:\n" .
+                        "\n" .
+                        "![app_unfurls_buttons](/uploads/729df963fe3a2e43e5ec6ff449808184/app_unfurls_buttons.png)",
                     'color' => '#E24329',
                     'ts' => 1493192433,
                     'footer' => 'Created by <https://gitlab.com/mydigitalself|Mike Bartlett>',

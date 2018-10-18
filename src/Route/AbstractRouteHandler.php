@@ -47,11 +47,21 @@ abstract class AbstractRouteHandler
 
         return [
             'title' => $this->formatTitle($object),
+            'text' => $this->getText($object),
             'color' => $this->getColor($object),
             'ts' => $this->formatCreatedDate($object),
             'footer' => "Created by {$this->formatAuthor($object['author'])}",
             'fields' => $this->getFields($object),
         ];
+    }
+
+    /**
+     * @param array $object
+     * @return string
+     */
+    protected function getText(array $object): string
+    {
+        return null;
     }
 
     /**
