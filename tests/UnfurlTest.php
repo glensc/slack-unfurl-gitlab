@@ -14,7 +14,10 @@ class UnfurlTest extends TestCase
      */
     public function testIssueUnfurl(string $url, array $parts, array $expected): void
     {
-        $unfurler = $this->app[Route\Issue::class];
+        /** @var Route\Issue $unfurler */
+        $response = new MockJsonResponse('GitLab/issue-12733.json');
+        $unfurler = $this->getRouteHandler(Route\Issue::class, [$response]);
+
         $result = $unfurler->unfurl($url, $parts);
         $this->assertEquals($expected, $result);
     }
@@ -27,7 +30,10 @@ class UnfurlTest extends TestCase
      */
     public function testMergeRequest(string $url, array $parts, array $expected): void
     {
-        $unfurler = $this->app[Route\MergeRequest::class];
+        /** @var Route\MergeRequest $unfurler */
+        $response = new MockJsonResponse('GitLab/merge_request.json');
+        $unfurler = $this->getRouteHandler(Route\MergeRequest::class, [$response]);
+
         $result = $unfurler->unfurl($url, $parts);
         $this->assertEquals($expected, $result);
     }
@@ -41,7 +47,9 @@ class UnfurlTest extends TestCase
     public function testNote(string $url, array $parts, array $expected): void
     {
         /** @var Route\Note $unfurler */
-        $unfurler = $this->app[Route\Note::class];
+        $response = new MockJsonResponse('GitLab/note.json');
+        $unfurler = $this->getRouteHandler(Route\Note::class, [$response]);
+
         $result = $unfurler->unfurl($url, $parts);
         $this->assertEquals($expected, $result);
     }
