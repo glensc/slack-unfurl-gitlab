@@ -149,4 +149,9 @@ abstract class AbstractRouteHandler
             }
         }
     }
+
+    protected function sanitizeText(string $text): string
+    {
+        return str_replace("\r\n", "\n", $text);
+    }
 }
