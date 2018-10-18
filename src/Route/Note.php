@@ -15,11 +15,12 @@ class Note extends AbstractRouteHandler
         $issue_iid = $parts['number'];
         $note_id = $parts['id'];
 
+        $issue = $this->apiClient->issues->show($project_id, $issue_iid);
         $note = $this->apiClient->issues->showComment($project_id, $issue_iid, $note_id);
 
         // for formatTitle
-        $note ['iid'] = $note['noteable_iid'];
-        $note ['title'] = "Note #{$note_id} for issue #{$note['iid']}";
+        $note['iid'] = $note['noteable_iid'];
+        $note['title'] = "Note on issue #{$note['iid']}: {$issue['title']}";
 
         $this->debug('note', ['note' => $note]);
 

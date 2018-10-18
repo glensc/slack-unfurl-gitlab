@@ -125,7 +125,7 @@ class UnfurlTest extends TestCase
                     'id' => '28249314',
                 ],
                 [
-                    'title' => '<https://gitlab.com/gitlab-org/gitlab-ce/issues/31422#note_28249314|#31422>: Note 28249314 for 31422',
+                    'title' => '<https://gitlab.com/gitlab-org/gitlab-ce/issues/31422#note_28249314|#31422>: Note on issue #31422: View issue / merge request state in unfurled issue link in Slack',
                     'color' => '#E24329',
                     'ts' => 1493192433,
                     'footer' => 'Created by <https://gitlab.com/mydigitalself|Mike Bartlett>',

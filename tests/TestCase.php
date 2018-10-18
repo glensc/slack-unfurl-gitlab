@@ -47,6 +47,14 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
             );
         };
 
+        $app[Route\Note::class] = function ($app) {
+            return new Route\Note(
+                $app[Gitlab\Client::class],
+                $app[SlackClient::class],
+                $app[NullLogger::class]
+            );
+        };
+
         return $app;
     }
 }
