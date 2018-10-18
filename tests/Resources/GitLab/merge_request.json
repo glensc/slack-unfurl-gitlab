@@ -1,0 +1,91 @@
+{
+  "id": 982146,
+  "iid": 6721,
+  "project_id": 13083,
+  "title": "Update custom_hooks.md for chained hooks support",
+  "description": "## What does this MR do?\n\nAdd documentation for gitlab-org\/gitlab-shell!93\n\n## Are there points in the code the reviewer needs to double check?\n\n## Why was this MR needed?\n\n## Screenshots (if relevant)\n\n## Does this MR meet the acceptance criteria?\n\n- [x] [CHANGELOG](https:\/\/gitlab.com\/gitlab-org\/gitlab-ce\/blob\/master\/CHANGELOG) entry added\n- [x] [Documentation created\/updated](https:\/\/gitlab.com\/gitlab-org\/gitlab-ce\/blob\/master\/doc\/development\/doc_styleguide.md)\n- [ ] API support added\n- Tests\n  - [ ] Added for this feature\/bug\n  - [ ] All builds are passing\n- [ ] Conform by the [merge request performance guides](http:\/\/docs.gitlab.com\/ce\/development\/merge_request_performance_guidelines.html)\n- [ ] Conform by the [style guides](https:\/\/gitlab.com\/gitlab-org\/gitlab-ce\/blob\/master\/CONTRIBUTING.md#style-guides)\n- [ ] Branch has no merge conflicts with `master` (if you do - rebase it please)\n- [x] [Squashed related commits together](https:\/\/git-scm.com\/book\/en\/Git-Tools-Rewriting-History#Squashing-Commits)\n\n## What are the relevant issue numbers?",
+  "state": "merged",
+  "created_at": "2016-10-06T17:54:09.073Z",
+  "updated_at": "2016-12-07T09:55:31.778Z",
+  "target_branch": "master",
+  "source_branch": "patch-6",
+  "upvotes": 0,
+  "downvotes": 0,
+  "author": {
+    "id": 163557,
+    "name": "Elan Ruusam\u00e4e",
+    "username": "glensc",
+    "state": "active",
+    "avatar_url": "https:\/\/secure.gravatar.com\/avatar\/effff0989c8041ef98aaf916c7092d6d?s=80&d=identicon",
+    "web_url": "https:\/\/gitlab.com\/glensc"
+  },
+  "assignee": {
+    "id": 443319,
+    "name": "Sean McGivern",
+    "username": "smcgivern",
+    "state": "active",
+    "avatar_url": "https:\/\/assets.gitlab-static.net\/uploads\/-\/system\/user\/avatar\/443319\/avatar.png",
+    "web_url": "https:\/\/gitlab.com\/smcgivern"
+  },
+  "source_project_id": 925402,
+  "target_project_id": 13083,
+  "labels": [
+    "Community contribution",
+    "Documentation"
+  ],
+  "work_in_progress": false,
+  "milestone": {
+    "id": 118781,
+    "iid": 32,
+    "project_id": 13083,
+    "title": "8.15",
+    "description": "",
+    "state": "closed",
+    "created_at": "2016-10-24T12:30:59.575Z",
+    "updated_at": "2017-02-03T18:30:05.320Z",
+    "due_date": "2016-12-22",
+    "start_date": null,
+    "web_url": "https:\/\/gitlab.com\/gitlab-org\/gitlab-ce\/milestones\/32"
+  },
+  "merge_when_pipeline_succeeds": false,
+  "merge_status": "can_be_merged",
+  "sha": "bc380e48486903637ec9da977ad2d5bab3dc9dfd",
+  "merge_commit_sha": "c65a8552c756f46f44ba691eba4797860710e522",
+  "user_notes_count": 14,
+  "discussion_locked": null,
+  "should_remove_source_branch": null,
+  "force_remove_source_branch": true,
+  "allow_collaboration": null,
+  "allow_maintainer_to_push": null,
+  "web_url": "https:\/\/gitlab.com\/gitlab-org\/gitlab-ce\/merge_requests\/6721",
+  "time_stats": {
+    "time_estimate": 0,
+    "total_time_spent": 0,
+    "human_time_estimate": null,
+    "human_total_time_spent": null
+  },
+  "squash": false,
+  "subscribed": true,
+  "changes_count": "1",
+  "merged_by": {
+    "id": 443319,
+    "name": "Sean McGivern",
+    "username": "smcgivern",
+    "state": "active",
+    "avatar_url": "https:\/\/assets.gitlab-static.net\/uploads\/-\/system\/user\/avatar\/443319\/avatar.png",
+    "web_url": "https:\/\/gitlab.com\/smcgivern"
+  },
+  "merged_at": "2016-12-07T09:55:30.131Z",
+  "closed_by": null,
+  "closed_at": null,
+  "latest_build_started_at": null,
+  "latest_build_finished_at": null,
+  "first_deployed_to_production_at": null,
+  "pipeline": null,
+  "diff_refs": {
+    "base_sha": "a361eb2f193120296dd5a788a71e32c13eed43d3",
+    "head_sha": "bc380e48486903637ec9da977ad2d5bab3dc9dfd",
+    "start_sha": "a361eb2f193120296dd5a788a71e32c13eed43d3"
+  },
+  "approvals_before_merge": null
+}
