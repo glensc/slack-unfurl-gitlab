@@ -11,17 +11,17 @@ class UnfurlTest extends TestCase
      * @param string $url
      * @param array $parts
      * @param array $expected
+     * @param array $responses
      * @dataProvider issueDataProvider
      */
-    public function testIssueUnfurl(string $url, array $parts, array $expected): void
+    public function testIssueUnfurl(string $url, array $parts, array $expected, array $responses): void
     {
         $router = new GitLabRoutes($this->domain);
         $match = $router->match($url)[1];
         $this->assertEquals($match, $parts);
 
         /** @var Route\Issue $unfurler */
-        $response = new MockJsonResponse('GitLab/issue-12733.json');
-        $unfurler = $this->getRouteHandler(Route\Issue::class, [$response]);
+        $unfurler = $this->getRouteHandler(Route\Issue::class, $responses);
 
         $result = $unfurler->unfurl($url, $parts);
         $this->assertEquals($expected, $result);
@@ -31,17 +31,17 @@ class UnfurlTest extends TestCase
      * @param string $url
      * @param array $parts
      * @param array $expected
+     * @param array $responses
      * @dataProvider mergeDataProvider
      */
-    public function testMergeRequest(string $url, array $parts, array $expected): void
+    public function testMergeRequest(string $url, array $parts, array $expected, array $responses): void
     {
         $router = new GitLabRoutes($this->domain);
         $match = $router->match($url)[1];
         $this->assertEquals($match, $parts);
 
         /** @var Route\MergeRequest $unfurler */
-        $response = new MockJsonResponse('GitLab/merge_request.json');
-        $unfurler = $this->getRouteHandler(Route\MergeRequest::class, [$response]);
+        $unfurler = $this->getRouteHandler(Route\MergeRequest::class, $responses);
 
         $result = $unfurler->unfurl($url, $parts);
         $this->assertEquals($expected, $result);
@@ -51,19 +51,16 @@ class UnfurlTest extends TestCase
      * @param string $url
      * @param array $parts
      * @param array $expected
+     * @param array $responses
      * @dataProvider noteDataProvider
      */
-    public function testNote(string $url, array $parts, array $expected): void
+    public function testNote(string $url, array $parts, array $expected, array $responses): void
     {
         $router = new GitLabRoutes($this->domain);
         $match = $router->match($url)[1];
         $this->assertEquals($match, $parts);
 
         /** @var Route\Note $unfurler */
-        $responses = [
-            new MockJsonResponse('GitLab/issue-31422.json'),
-            new MockJsonResponse('GitLab/note.json'),
-        ];
         $unfurler = $this->getRouteHandler(Route\Note::class, $responses);
 
         $result = $unfurler->unfurl($url, $parts);
@@ -98,6 +95,9 @@ class UnfurlTest extends TestCase
                             'short' => true,
                         ],
                     ],
+                ],
+                [
+                    new MockJsonResponse('GitLab/issue-12733.json'),
                 ],
             ],
         ];
@@ -156,6 +156,9 @@ class UnfurlTest extends TestCase
                         ],
                     ],
                 ],
+                [
+                    new MockJsonResponse('GitLab/merge_request-6721.json')
+                ],
             ],
         ];
     }
@@ -168,6 +171,7 @@ class UnfurlTest extends TestCase
                 [
                     'namespace' => 'gitlab-org/',
                     'project_path' => 'gitlab-org/gitlab-ce',
+                    'type' => 'issues',
                     'repo' => 'gitlab-ce',
                     'number' => '31422',
                     'id' => '28249314',
@@ -189,6 +193,33 @@ class UnfurlTest extends TestCase
                     'ts' => 1493192433,
                     'footer' => 'Created by <https://gitlab.com/mydigitalself|Mike Bartlett>',
                     'fields' => [],
+                ],
+                [
+                    new MockJsonResponse('GitLab/issue-31422.json'),
+                    new MockJsonResponse('GitLab/note.json'),
+                ],
+            ],
+            [
+                'https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721#note_19288529',
+                [
+                    'namespace' => 'gitlab-org/',
+                    'project_path' => 'gitlab-org/gitlab-ce',
+                    'type' => 'merge_requests',
+                    'repo' => 'gitlab-ce',
+                    'number' => '6721',
+                    'id' => '19288529',
+                ],
+                [
+                    'title' => '<https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721#note_19288529|#6721>: Note on merge request #6721: Update custom_hooks.md for chained hooks support',
+                    'text' => "@glensc I've got some grammar nitpicks, but otherwise this is fine by me! I can fix those in a separate branch if you're done with this.",
+                    'color' => '#E24329',
+                    'ts' => 1480594445,
+                    'footer' => 'Created by <https://gitlab.com/smcgivern|Sean McGivern>',
+                    'fields' => [],
+                ],
+                [
+                    new MockJsonResponse('GitLab/notes-6721.json'),
+                    new MockJsonResponse('GitLab/merge_request-6721.json'),
                 ],
             ],
         ];
