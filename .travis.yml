@@ -1,0 +1,24 @@
+language: php
+sudo: false
+dist: trusty
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - vendor
+
+jobs:
+  fast_finish: true
+  allow_failures:
+    - php: "hhvm"
+    - php: "nightly"
+  include:
+    - php: "7.1"
+    - php: "7.2"
+    - php: "nightly"
+    - php: "hhvm"
+
+install:
+  - composer install
+
+# vim:ts=2:sw=2:et

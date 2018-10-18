@@ -2,7 +2,6 @@
 
 namespace GitlabSlackUnfurl\Test;
 
-use Gitlab;
 use GitlabSlackUnfurl\Route\GitLabRoutes;
 
 class RouteTest extends TestCase
@@ -13,7 +12,7 @@ class RouteTest extends TestCase
      * @param array $parts
      * @dataProvider routesProvider
      */
-    public function testRoutes(string $route, string $url, array $parts)
+    public function testRoutes(string $route, string $url, array $parts): void
     {
         $router = new GitLabRoutes($this->domain);
         $match = $router->match($url);
@@ -21,7 +20,7 @@ class RouteTest extends TestCase
         $this->assertEquals($parts, $match[1]);
     }
 
-    public function routesProvider()
+    public function routesProvider(): array
     {
         return [
             ['issue', 'https://gitlab.com/gitlab-org/gitlab-ce/issues/12733', [

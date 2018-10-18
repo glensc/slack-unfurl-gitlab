@@ -6,9 +6,11 @@ use DateTime;
 use DateTimeZone;
 use Generator;
 use Gitlab;
+use Iterator;
 use Psr\Log\LoggerInterface;
 use SlackUnfurl\LoggerTrait;
 use SlackUnfurl\SlackClient;
+use function is_array;
 
 abstract class AbstractRouteHandler
 {
@@ -43,11 +45,19 @@ abstract class AbstractRouteHandler
 
         return [
             'title' => $this->formatTitle($url, $object),
-            'color' => '#E24329',
+            'color' => $this->getColor(),
             'ts' => $this->formatCreatedDate($object),
             'footer' => "Created by {$this->formatAuthor($object['author'])}",
-            'fields' => iterator_to_array($this->getFields($this->buildFields($object))),
+            'fields' => $this->getFields($object),
         ];
+    }
+
+    /**
+     * @return string
+     */
+    protected function getColor(): string
+    {
+        return '#E24329';
     }
 
     protected function getAssignees(array $assignees)
@@ -84,7 +94,12 @@ abstract class AbstractRouteHandler
         );
     }
 
-    protected function buildFields(array $object)
+    protected function getFields(array $object): array
+    {
+        return iterator_to_array($this->compactFields($this->buildFields($object)));
+    }
+
+    protected function buildFields(array $object): Generator
     {
         yield [
             'title' => 'Assignee',
@@ -103,10 +118,10 @@ abstract class AbstractRouteHandler
     /**
      * Skip empty fields, join array and generators
      */
-    protected function getFields($fields)
+    protected function compactFields(iterable $fields): Generator
     {
         foreach ($fields as $field) {
-            if ($field['value'] instanceof Generator) {
+            if ($field['value'] instanceof Iterator) {
                 $field['value'] = iterator_to_array($field['value']);
             }
             if (is_array($field['value'])) {
