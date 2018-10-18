@@ -3,6 +3,7 @@
 namespace GitlabSlackUnfurl\Test;
 
 use GitlabSlackUnfurl\Route;
+use GitlabSlackUnfurl\Route\GitLabRoutes;
 
 class UnfurlTest extends TestCase
 {
@@ -14,6 +15,10 @@ class UnfurlTest extends TestCase
      */
     public function testIssueUnfurl(string $url, array $parts, array $expected): void
     {
+        $router = new GitLabRoutes($this->domain);
+        $match = $router->match($url)[1];
+        $this->assertEquals($match, $parts);
+
         /** @var Route\Issue $unfurler */
         $response = new MockJsonResponse('GitLab/issue-12733.json');
         $unfurler = $this->getRouteHandler(Route\Issue::class, [$response]);
@@ -30,6 +35,10 @@ class UnfurlTest extends TestCase
      */
     public function testMergeRequest(string $url, array $parts, array $expected): void
     {
+        $router = new GitLabRoutes($this->domain);
+        $match = $router->match($url)[1];
+        $this->assertEquals($match, $parts);
+
         /** @var Route\MergeRequest $unfurler */
         $response = new MockJsonResponse('GitLab/merge_request.json');
         $unfurler = $this->getRouteHandler(Route\MergeRequest::class, [$response]);
@@ -46,6 +55,10 @@ class UnfurlTest extends TestCase
      */
     public function testNote(string $url, array $parts, array $expected): void
     {
+        $router = new GitLabRoutes($this->domain);
+        $match = $router->match($url)[1];
+        $this->assertEquals($match, $parts);
+
         /** @var Route\Note $unfurler */
         $responses = [
             new MockJsonResponse('GitLab/issue-31422.json'),
