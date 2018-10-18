@@ -1,0 +1,59 @@
+{
+  "id": 5191167,
+  "iid": 31422,
+  "project_id": 13083,
+  "title": "View issue \/ merge request state in unfurled issue link in Slack",
+  "description": "### Background\r\n- When an issue is pasted in Slack, the link is unfurled, and certain fields of the issue are displayed in a preview.\r\n- We want to provide more integration and enable users to stay in Slack if they need to.\r\n\r\n### Description\r\n- View the issue state (open, closed) in the preview.\r\n- Same for merge requests (open, closed, merged).\r\n\r\n### References\r\nhttps:\/\/api.slack.com\/docs\/message-link-unfurling\r\n\r\n\r\n![\u87a2\u5e55\u5feb\u7167_2017-04-25_19.02.41](\/uploads\/16e4c1c483cf52bb74eb9a3370b746ab\/\u87a2\u5e55\u5feb\u7167_2017-04-25_19.02.41.png)\r\n\r\n",
+  "state": "opened",
+  "created_at": "2017-04-25T22:55:41.942Z",
+  "updated_at": "2018-03-01T22:19:28.871Z",
+  "closed_at": null,
+  "closed_by": null,
+  "labels": [
+    "Plan"
+  ],
+  "milestone": {
+    "id": 490705,
+    "iid": 14,
+    "group_id": 9970,
+    "title": "Backlog (Accepting merge requests)",
+    "description": "Issues that we want to do but are not planned right now. Open for contribution from the community.",
+    "state": "active",
+    "created_at": "2018-03-22T13:09:23.767Z",
+    "updated_at": "2018-09-12T16:51:28.438Z",
+    "due_date": null,
+    "start_date": null,
+    "web_url": "https:\/\/gitlab.com\/groups\/gitlab-org\/-\/milestones\/14"
+  },
+  "assignees": [],
+  "author": {
+    "id": 711023,
+    "name": "Victor Wu",
+    "username": "victorwu",
+    "state": "active",
+    "avatar_url": "https:\/\/secure.gravatar.com\/avatar\/f0b56d60f6827c298ee5ab520a675a58?s=80&d=identicon",
+    "web_url": "https:\/\/gitlab.com\/victorwu"
+  },
+  "assignee": null,
+  "user_notes_count": 11,
+  "upvotes": 0,
+  "downvotes": 0,
+  "due_date": null,
+  "confidential": false,
+  "discussion_locked": null,
+  "web_url": "https:\/\/gitlab.com\/gitlab-org\/gitlab-ce\/issues\/31422",
+  "time_stats": {
+    "time_estimate": 0,
+    "total_time_spent": 0,
+    "human_time_estimate": null,
+    "human_total_time_spent": null
+  },
+  "_links": {
+    "self": "https:\/\/gitlab.com\/api\/v4\/projects\/13083\/issues\/31422",
+    "notes": "https:\/\/gitlab.com\/api\/v4\/projects\/13083\/issues\/31422\/notes",
+    "award_emoji": "https:\/\/gitlab.com\/api\/v4\/projects\/13083\/issues\/31422\/award_emoji",
+    "project": "https:\/\/gitlab.com\/api\/v4\/projects\/13083"
+  },
+  "subscribed": true,
+  "weight": null
+}

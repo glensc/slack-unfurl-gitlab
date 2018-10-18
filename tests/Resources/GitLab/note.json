@@ -1,0 +1,21 @@
+{
+  "id": 28249314,
+  "type": null,
+  "body": "@victorwu by default, Slack's proxy servers will make the request to the URL. This means a number of things:\na) if the server is inaccessible to the general internets, it won't unfurl\nb) if the page requires authentication, it won't unfurl\n\nWith a Slack App, you can do [authenticated unfurls](https:\/\/api.slack.com\/docs\/message-link-unfurling#authenticated_unfurls) whereby you listen to an event with a particular URL pattern and then can unfurl the link.\n\nUnfortunately, because the Slack App doesn't have a URL parameter (i.e. you can't tell it that my GitHub instance is https:\/\/job.gitlap.com\/*) this means that self-hosted GitLab instances will need manual App configuration. Slack are looking into what can be done about this in the future.\n\nFor now, we can certainly improve the unfurls for GitLab.com and also provide private issues with authenticated unfurls on GitLab.com. We can also use unfurl events to make links [interactive](https:\/\/api.slack.com\/docs\/message-link-unfurling#interactive) like this:\n\n![app_unfurls_buttons](\/uploads\/729df963fe3a2e43e5ec6ff449808184\/app_unfurls_buttons.png)",
+  "attachment": null,
+  "author": {
+    "id": 863091,
+    "name": "Mike Bartlett",
+    "username": "mydigitalself",
+    "state": "active",
+    "avatar_url": "https:\/\/assets.gitlab-static.net\/uploads\/-\/system\/user\/avatar\/863091\/avatar.png",
+    "web_url": "https:\/\/gitlab.com\/mydigitalself"
+  },
+  "created_at": "2017-04-26T07:40:33.701Z",
+  "updated_at": "2017-04-26T07:40:33.701Z",
+  "system": false,
+  "noteable_id": 5191167,
+  "noteable_type": "Issue",
+  "resolvable": false,
+  "noteable_iid": 31422
+}

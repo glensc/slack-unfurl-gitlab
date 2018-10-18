@@ -1,0 +1,498 @@
+[
+  {
+    "id": 19628119,
+    "type": null,
+    "body": "mentioned in commit c65a8552c756f46f44ba691eba4797860710e522",
+    "attachment": null,
+    "author": {
+      "id": 443319,
+      "name": "Sean McGivern",
+      "username": "smcgivern",
+      "state": "active",
+      "avatar_url": "https:\/\/assets.gitlab-static.net\/uploads\/-\/system\/user\/avatar\/443319\/avatar.png",
+      "web_url": "https:\/\/gitlab.com\/smcgivern"
+    },
+    "created_at": "2016-12-07T09:55:31.775Z",
+    "updated_at": "2016-12-07T09:55:31.775Z",
+    "system": true,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19628117,
+    "type": null,
+    "body": "merged",
+    "attachment": null,
+    "author": {
+      "id": 443319,
+      "name": "Sean McGivern",
+      "username": "smcgivern",
+      "state": "active",
+      "avatar_url": "https:\/\/assets.gitlab-static.net\/uploads\/-\/system\/user\/avatar\/443319\/avatar.png",
+      "web_url": "https:\/\/gitlab.com\/smcgivern"
+    },
+    "created_at": "2016-12-07T09:55:30.164Z",
+    "updated_at": "2016-12-07T09:55:30.164Z",
+    "system": true,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19514934,
+    "type": null,
+    "body": "mentioned in commit gitlab-org\/gitlab-shell@e1b0aca197cb61a4ee33b8de37b79c57bb3369ad",
+    "attachment": null,
+    "author": {
+      "id": 128633,
+      "name": "R\u00e9my Coutable",
+      "username": "rymai",
+      "state": "active",
+      "avatar_url": "https:\/\/secure.gravatar.com\/avatar\/263da227929cc0035cb0eba512bcf81a?s=80&d=identicon",
+      "web_url": "https:\/\/gitlab.com\/rymai"
+    },
+    "created_at": "2016-12-06T19:37:34.929Z",
+    "updated_at": "2016-12-06T19:37:34.929Z",
+    "system": true,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19509097,
+    "type": null,
+    "body": "rebased against master, perhaps this fixes build failure :)",
+    "attachment": null,
+    "author": {
+      "id": 163557,
+      "name": "Elan Ruusam\u00e4e",
+      "username": "glensc",
+      "state": "active",
+      "avatar_url": "https:\/\/secure.gravatar.com\/avatar\/effff0989c8041ef98aaf916c7092d6d?s=80&d=identicon",
+      "web_url": "https:\/\/gitlab.com\/glensc"
+    },
+    "created_at": "2016-12-06T18:25:39.732Z",
+    "updated_at": "2016-12-06T18:25:39.732Z",
+    "system": false,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19509094,
+    "type": null,
+    "body": "added 101 commits\n\n* e7353406...a361eb2f - 100 commits from branch `gitlab-org:master`\n* bc380e48 - Update custom_hooks.md for global custom hooks and chained hook info\n\n[Compare with previous version](https:\/\/gitlab.com\/gitlab-org\/gitlab-ce\/merge_requests\/6721\/diffs?diff_id=1724743&start_sha=e7353406f15bdbab7e677f18a4886fb58f9464a1)",
+    "attachment": null,
+    "author": {
+      "id": 163557,
+      "name": "Elan Ruusam\u00e4e",
+      "username": "glensc",
+      "state": "active",
+      "avatar_url": "https:\/\/secure.gravatar.com\/avatar\/effff0989c8041ef98aaf916c7092d6d?s=80&d=identicon",
+      "web_url": "https:\/\/gitlab.com\/glensc"
+    },
+    "created_at": "2016-12-06T18:25:34.999Z",
+    "updated_at": "2016-12-06T18:25:34.999Z",
+    "system": true,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19506927,
+    "type": null,
+    "body": "There is no way this caused a spec failure, and https:\/\/gitlab.com\/gitlab-org\/gitlab-shell\/merge_requests\/111 is merged, so I'll just merge this!",
+    "attachment": null,
+    "author": {
+      "id": 443319,
+      "name": "Sean McGivern",
+      "username": "smcgivern",
+      "state": "active",
+      "avatar_url": "https:\/\/assets.gitlab-static.net\/uploads\/-\/system\/user\/avatar\/443319\/avatar.png",
+      "web_url": "https:\/\/gitlab.com\/smcgivern"
+    },
+    "created_at": "2016-12-06T17:23:16.702Z",
+    "updated_at": "2016-12-06T17:23:16.702Z",
+    "system": false,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19488411,
+    "type": null,
+    "body": "assigned to @smcgivern",
+    "attachment": null,
+    "author": {
+      "id": 443319,
+      "name": "Sean McGivern",
+      "username": "smcgivern",
+      "state": "active",
+      "avatar_url": "https:\/\/assets.gitlab-static.net\/uploads\/-\/system\/user\/avatar\/443319\/avatar.png",
+      "web_url": "https:\/\/gitlab.com\/smcgivern"
+    },
+    "created_at": "2016-12-06T11:51:49.780Z",
+    "updated_at": "2016-12-06T11:51:49.780Z",
+    "system": true,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19488394,
+    "type": null,
+    "body": "Thanks @glensc!",
+    "attachment": null,
+    "author": {
+      "id": 443319,
+      "name": "Sean McGivern",
+      "username": "smcgivern",
+      "state": "active",
+      "avatar_url": "https:\/\/assets.gitlab-static.net\/uploads\/-\/system\/user\/avatar\/443319\/avatar.png",
+      "web_url": "https:\/\/gitlab.com\/smcgivern"
+    },
+    "created_at": "2016-12-06T11:51:43.310Z",
+    "updated_at": "2016-12-06T11:51:43.310Z",
+    "system": false,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19404218,
+    "type": null,
+    "body": "added 368 commits\n\n* 30a8ccb2...89c7db6a - 367 commits from branch `gitlab-org:master`\n* e7353406 - Update custom_hooks.md for global custom hooks and chained hook info\n\n[Compare with previous version](https:\/\/gitlab.com\/gitlab-org\/gitlab-ce\/merge_requests\/6721\/diffs?diff_id=1686182&start_sha=30a8ccb2acc62d369d1e5effbae5f1c1895d1a0d)",
+    "attachment": null,
+    "author": {
+      "id": 163557,
+      "name": "Elan Ruusam\u00e4e",
+      "username": "glensc",
+      "state": "active",
+      "avatar_url": "https:\/\/secure.gravatar.com\/avatar\/effff0989c8041ef98aaf916c7092d6d?s=80&d=identicon",
+      "web_url": "https:\/\/gitlab.com\/glensc"
+    },
+    "created_at": "2016-12-04T21:44:25.578Z",
+    "updated_at": "2016-12-04T21:44:25.578Z",
+    "system": true,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19400904,
+    "type": null,
+    "body": "resolved all discussions",
+    "attachment": null,
+    "author": {
+      "id": 163557,
+      "name": "Elan Ruusam\u00e4e",
+      "username": "glensc",
+      "state": "active",
+      "avatar_url": "https:\/\/secure.gravatar.com\/avatar\/effff0989c8041ef98aaf916c7092d6d?s=80&d=identicon",
+      "web_url": "https:\/\/gitlab.com\/glensc"
+    },
+    "created_at": "2016-12-04T18:42:50.993Z",
+    "updated_at": "2016-12-04T18:42:50.993Z",
+    "system": true,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19400903,
+    "type": "DiffNote",
+    "body": "30a8ccb",
+    "attachment": null,
+    "author": {
+      "id": 163557,
+      "name": "Elan Ruusam\u00e4e",
+      "username": "glensc",
+      "state": "active",
+      "avatar_url": "https:\/\/secure.gravatar.com\/avatar\/effff0989c8041ef98aaf916c7092d6d?s=80&d=identicon",
+      "web_url": "https:\/\/gitlab.com\/glensc"
+    },
+    "created_at": "2016-12-04T18:42:50.045Z",
+    "updated_at": "2016-12-04T18:42:50.045Z",
+    "system": false,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "position": {
+      "base_sha": "83ef7c08f373c5a96532ecc16a9200eeaa8f0631",
+      "start_sha": "83ef7c08f373c5a96532ecc16a9200eeaa8f0631",
+      "head_sha": "896eae05f041cf4f63e165763a4b49eb5e7774b8",
+      "old_path": "doc\/administration\/custom_hooks.md",
+      "new_path": "doc\/administration\/custom_hooks.md",
+      "position_type": "text",
+      "old_line": null,
+      "new_line": 49
+    },
+    "resolvable": true,
+    "resolved": true,
+    "resolved_by": {
+      "id": 163557,
+      "name": "Elan Ruusam\u00e4e",
+      "username": "glensc",
+      "state": "active",
+      "avatar_url": "https:\/\/secure.gravatar.com\/avatar\/effff0989c8041ef98aaf916c7092d6d?s=80&d=identicon",
+      "web_url": "https:\/\/gitlab.com\/glensc"
+    },
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19400899,
+    "type": "DiffNote",
+    "body": "30a8ccb",
+    "attachment": null,
+    "author": {
+      "id": 163557,
+      "name": "Elan Ruusam\u00e4e",
+      "username": "glensc",
+      "state": "active",
+      "avatar_url": "https:\/\/secure.gravatar.com\/avatar\/effff0989c8041ef98aaf916c7092d6d?s=80&d=identicon",
+      "web_url": "https:\/\/gitlab.com\/glensc"
+    },
+    "created_at": "2016-12-04T18:42:32.580Z",
+    "updated_at": "2016-12-04T18:42:32.580Z",
+    "system": false,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "position": {
+      "base_sha": "83ef7c08f373c5a96532ecc16a9200eeaa8f0631",
+      "start_sha": "83ef7c08f373c5a96532ecc16a9200eeaa8f0631",
+      "head_sha": "896eae05f041cf4f63e165763a4b49eb5e7774b8",
+      "old_path": "doc\/administration\/custom_hooks.md",
+      "new_path": "doc\/administration\/custom_hooks.md",
+      "position_type": "text",
+      "old_line": null,
+      "new_line": 59
+    },
+    "resolvable": true,
+    "resolved": true,
+    "resolved_by": {
+      "id": 163557,
+      "name": "Elan Ruusam\u00e4e",
+      "username": "glensc",
+      "state": "active",
+      "avatar_url": "https:\/\/secure.gravatar.com\/avatar\/effff0989c8041ef98aaf916c7092d6d?s=80&d=identicon",
+      "web_url": "https:\/\/gitlab.com\/glensc"
+    },
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19400898,
+    "type": null,
+    "body": "added 1 commit\n\n* 30a8ccb2 - grammar nitpicks\n\n[Compare with previous version](https:\/\/gitlab.com\/gitlab-org\/gitlab-ce\/merge_requests\/6721\/diffs?diff_id=1685072&start_sha=896eae05f041cf4f63e165763a4b49eb5e7774b8)",
+    "attachment": null,
+    "author": {
+      "id": 163557,
+      "name": "Elan Ruusam\u00e4e",
+      "username": "glensc",
+      "state": "active",
+      "avatar_url": "https:\/\/secure.gravatar.com\/avatar\/effff0989c8041ef98aaf916c7092d6d?s=80&d=identicon",
+      "web_url": "https:\/\/gitlab.com\/glensc"
+    },
+    "created_at": "2016-12-04T18:42:25.840Z",
+    "updated_at": "2016-12-04T18:42:25.840Z",
+    "system": true,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19400897,
+    "type": "DiffNote",
+    "body": "30a8ccb.",
+    "attachment": null,
+    "author": {
+      "id": 163557,
+      "name": "Elan Ruusam\u00e4e",
+      "username": "glensc",
+      "state": "active",
+      "avatar_url": "https:\/\/secure.gravatar.com\/avatar\/effff0989c8041ef98aaf916c7092d6d?s=80&d=identicon",
+      "web_url": "https:\/\/gitlab.com\/glensc"
+    },
+    "created_at": "2016-12-04T18:42:21.329Z",
+    "updated_at": "2016-12-04T18:42:41.751Z",
+    "system": false,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "position": {
+      "base_sha": "83ef7c08f373c5a96532ecc16a9200eeaa8f0631",
+      "start_sha": "83ef7c08f373c5a96532ecc16a9200eeaa8f0631",
+      "head_sha": "896eae05f041cf4f63e165763a4b49eb5e7774b8",
+      "old_path": "doc\/administration\/custom_hooks.md",
+      "new_path": "doc\/administration\/custom_hooks.md",
+      "position_type": "text",
+      "old_line": null,
+      "new_line": 61
+    },
+    "resolvable": true,
+    "resolved": true,
+    "resolved_by": {
+      "id": 163557,
+      "name": "Elan Ruusam\u00e4e",
+      "username": "glensc",
+      "state": "active",
+      "avatar_url": "https:\/\/secure.gravatar.com\/avatar\/effff0989c8041ef98aaf916c7092d6d?s=80&d=identicon",
+      "web_url": "https:\/\/gitlab.com\/glensc"
+    },
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19295003,
+    "type": null,
+    "body": "Mentioned in issue gitlab-org\/omnibus-gitlab#1754",
+    "attachment": null,
+    "author": {
+      "id": 443319,
+      "name": "Sean McGivern",
+      "username": "smcgivern",
+      "state": "active",
+      "avatar_url": "https:\/\/assets.gitlab-static.net\/uploads\/-\/system\/user\/avatar\/443319\/avatar.png",
+      "web_url": "https:\/\/gitlab.com\/smcgivern"
+    },
+    "created_at": "2016-12-01T14:08:09.697Z",
+    "updated_at": "2016-12-01T14:08:09.697Z",
+    "system": true,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19288663,
+    "type": null,
+    "body": "Reassigned to @glensc",
+    "attachment": null,
+    "author": {
+      "id": 443319,
+      "name": "Sean McGivern",
+      "username": "smcgivern",
+      "state": "active",
+      "avatar_url": "https:\/\/assets.gitlab-static.net\/uploads\/-\/system\/user\/avatar\/443319\/avatar.png",
+      "web_url": "https:\/\/gitlab.com\/smcgivern"
+    },
+    "created_at": "2016-12-01T12:16:41.027Z",
+    "updated_at": "2016-12-01T12:16:41.027Z",
+    "system": true,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19288545,
+    "type": null,
+    "body": "Milestone changed to %32",
+    "attachment": null,
+    "author": {
+      "id": 443319,
+      "name": "Sean McGivern",
+      "username": "smcgivern",
+      "state": "active",
+      "avatar_url": "https:\/\/assets.gitlab-static.net\/uploads\/-\/system\/user\/avatar\/443319\/avatar.png",
+      "web_url": "https:\/\/gitlab.com\/smcgivern"
+    },
+    "created_at": "2016-12-01T12:14:27.994Z",
+    "updated_at": "2016-12-01T12:14:27.994Z",
+    "system": true,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19288529,
+    "type": null,
+    "body": "@glensc I've got some grammar nitpicks, but otherwise this is fine by me! I can fix those in a separate branch if you're done with this.",
+    "attachment": null,
+    "author": {
+      "id": 443319,
+      "name": "Sean McGivern",
+      "username": "smcgivern",
+      "state": "active",
+      "avatar_url": "https:\/\/assets.gitlab-static.net\/uploads\/-\/system\/user\/avatar\/443319\/avatar.png",
+      "web_url": "https:\/\/gitlab.com\/smcgivern"
+    },
+    "created_at": "2016-12-01T12:14:05.015Z",
+    "updated_at": "2016-12-01T12:14:05.015Z",
+    "system": false,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19287976,
+    "type": null,
+    "body": "Mentioned in merge request gitlab-org\/gitlab-shell!111",
+    "attachment": null,
+    "author": {
+      "id": 443319,
+      "name": "Sean McGivern",
+      "username": "smcgivern",
+      "state": "active",
+      "avatar_url": "https:\/\/assets.gitlab-static.net\/uploads\/-\/system\/user\/avatar\/443319\/avatar.png",
+      "web_url": "https:\/\/gitlab.com\/smcgivern"
+    },
+    "created_at": "2016-12-01T12:13:23.349Z",
+    "updated_at": "2016-12-01T12:13:23.349Z",
+    "system": true,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "noteable_iid": 6721
+  },
+  {
+    "id": 19287777,
+    "type": "DiffNote",
+    "body": "same type -> the same type\nfirst -> the first",
+    "attachment": null,
+    "author": {
+      "id": 443319,
+      "name": "Sean McGivern",
+      "username": "smcgivern",
+      "state": "active",
+      "avatar_url": "https:\/\/assets.gitlab-static.net\/uploads\/-\/system\/user\/avatar\/443319\/avatar.png",
+      "web_url": "https:\/\/gitlab.com\/smcgivern"
+    },
+    "created_at": "2016-12-01T12:09:22.032Z",
+    "updated_at": "2016-12-01T12:09:22.032Z",
+    "system": false,
+    "noteable_id": 982146,
+    "noteable_type": "MergeRequest",
+    "position": {
+      "base_sha": "83ef7c08f373c5a96532ecc16a9200eeaa8f0631",
+      "start_sha": "83ef7c08f373c5a96532ecc16a9200eeaa8f0631",
+      "head_sha": "896eae05f041cf4f63e165763a4b49eb5e7774b8",
+      "old_path": "doc\/administration\/custom_hooks.md",
+      "new_path": "doc\/administration\/custom_hooks.md",
+      "position_type": "text",
+      "old_line": null,
+      "new_line": 61
+    },
+    "resolvable": true,
+    "resolved": true,
+    "resolved_by": {
+      "id": 163557,
+      "name": "Elan Ruusam\u00e4e",
+      "username": "glensc",
+      "state": "active",
+      "avatar_url": "https:\/\/secure.gravatar.com\/avatar\/effff0989c8041ef98aaf916c7092d6d?s=80&d=identicon",
+      "web_url": "https:\/\/gitlab.com\/glensc"
+    },
+    "noteable_iid": 6721
+  }
+]

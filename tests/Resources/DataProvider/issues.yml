@@ -1,0 +1,24 @@
+-
+  - https://gitlab.com/gitlab-org/gitlab-ce/issues/12733
+  - namespace: gitlab-org/
+    project_path: gitlab-org/gitlab-ce
+    repo: gitlab-ce
+    number: '12733'
+  - title: '<https://gitlab.com/gitlab-org/gitlab-ce/issues/12733|#12733>: Disable Unfurling for the login page'
+    text: |
+        When a project is private, and you paste it into something like slack, you get the message: "Sign In"
+
+        ![image](/uploads/861d44489c2de9ef1510b0d44bf8ebc9/image.png)
+
+        This can be solved by disabling the unfurl for the login page.
+    color: '#E24329'
+    ts: 1453816324
+    footer: 'Created by <https://gitlab.com/jvanbaarsen|Jeroen van Baarsen>'
+    fields:
+      - title: Labels
+        value: 'Platform, external services, feature proposal'
+        short: true
+  -
+    - GitLab/issue-12733.json
+
+# vim:ts=2:sw=2:et

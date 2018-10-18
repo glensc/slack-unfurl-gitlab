@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeZone;
 use Generator;
 use Gitlab;
+use GitlabSlackUnfurl\Traits\SanitizeTextTrait;
 use Iterator;
 use Psr\Log\LoggerInterface;
 use SlackUnfurl\LoggerTrait;
@@ -15,6 +16,7 @@ use function is_array;
 abstract class AbstractRouteHandler
 {
     use LoggerTrait;
+    use SanitizeTextTrait;
 
     /** @var Gitlab\Client */
     protected $apiClient;
@@ -42,10 +44,13 @@ abstract class AbstractRouteHandler
         if (!$object) {
             return null;
         }
+        // the original url
+        $object['url'] = $url;
 
         return [
-            'title' => $this->formatTitle($url, $object),
-            'color' => $this->getColor(),
+            'title' => $this->formatTitle($object),
+            'text' => $this->getText($object),
+            'color' => $this->getColor($object),
             'ts' => $this->formatCreatedDate($object),
             'footer' => "Created by {$this->formatAuthor($object['author'])}",
             'fields' => $this->getFields($object),
@@ -53,9 +58,19 @@ abstract class AbstractRouteHandler
     }
 
     /**
+     * @param array $object
      * @return string
      */
-    protected function getColor(): string
+    protected function getText(array $object): string
+    {
+        return null;
+    }
+
+    /**
+     * @param array $object
+     * @return string
+     */
+    protected function getColor(array $object): string
     {
         return '#E24329';
     }
@@ -67,11 +82,11 @@ abstract class AbstractRouteHandler
         }
     }
 
-    protected function formatTitle(string $url, array $object)
+    protected function formatTitle(array $object)
     {
         return sprintf(
             '<%s|#%d>: %s',
-            $this->slackClient->urlencode($url),
+            $this->slackClient->urlencode($object['url']),
             $object['iid'],
             $this->slackClient->escape($object['title'])
         );

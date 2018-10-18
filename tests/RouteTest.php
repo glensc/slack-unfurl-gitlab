@@ -40,6 +40,7 @@ class RouteTest extends TestCase
             ['note', 'https://gitlab.com/gitlab-org/gitlab-ce/issues/31422#note_28249314', [
                 'namespace' => 'gitlab-org/',
                 'project_path' => 'gitlab-org/gitlab-ce',
+                'type' => 'issues',
                 'repo' => 'gitlab-ce',
                 'number' => '31422',
                 'id' => '28249314',
@@ -100,6 +101,7 @@ class RouteTest extends TestCase
             ['note', 'https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721#note_16627667', [
                 'namespace' => 'gitlab-org/',
                 'project_path' => 'gitlab-org/gitlab-ce',
+                'type' => 'merge_requests',
                 'repo' => 'gitlab-ce',
                 'number' => '6721',
                 'id' => '16627667',
