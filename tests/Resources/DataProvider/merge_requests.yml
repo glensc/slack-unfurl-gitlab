@@ -1,52 +1,49 @@
 -
-    - 'https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721/commits'
-    -
-        namespace: gitlab-org/
-        project_path: gitlab-org/gitlab-ce
-        repo: gitlab-ce
-        number: '6721'
-    -
-        title: '<https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721/commits|#6721>: Update custom_hooks.md for chained hooks support'
-        text: |
-            ## What does this MR do?
-            
-            Add documentation for gitlab-org/gitlab-shell!93
-            
-            ## Are there points in the code the reviewer needs to double check?
-            
-            ## Why was this MR needed?
-            
-            ## Screenshots (if relevant)
-            
-            ## Does this MR meet the acceptance criteria?
-            
-            - [x] [CHANGELOG](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/CHANGELOG) entry added
-            - [x] [Documentation created/updated](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/development/doc_styleguide.md)
-            - [ ] API support added
-            - Tests
-              - [ ] Added for this feature/bug
-              - [ ] All builds are passing
-            - [ ] Conform by the [merge request performance guides](http://docs.gitlab.com/ce/development/merge_request_performance_guidelines.html)
-            - [ ] Conform by the [style guides](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/CONTRIBUTING.md#style-guides)
-            - [ ] Branch has no merge conflicts with `master` (if you do - rebase it please)
-            - [x] [Squashed related commits together](https://git-scm.com/book/en/Git-Tools-Rewriting-History#Squashing-Commits)
-            
-            ## What are the relevant issue numbers?
-        color: '#E24329'
-        ts: 1475776449
-        footer: 'Created by <https://gitlab.com/glensc|Elan Ruusamäe>'
-        fields:
-            -
-                title: Assignee
-                value: '<https://gitlab.com/smcgivern|Sean McGivern>'
-                short: true
-            -
-                title: Labels
-                value: 'Community contribution, Documentation'
-                short: true
-            -
-                title: Milestone
-                value: '8.15'
-                short: true
-    -
-        - 'GitLab/merge_request-6721.json'
+  - 'https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721/commits'
+  - namespace: gitlab-org/
+    project_path: gitlab-org/gitlab-ce
+    repo: gitlab-ce
+    number: '6721'
+  - title: '<https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721/commits|#6721>: Update custom_hooks.md for chained hooks support'
+    text: |
+        ## What does this MR do?
+
+        Add documentation for gitlab-org/gitlab-shell!93
+
+        ## Are there points in the code the reviewer needs to double check?
+
+        ## Why was this MR needed?
+
+        ## Screenshots (if relevant)
+
+        ## Does this MR meet the acceptance criteria?
+
+        - [x] [CHANGELOG](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/CHANGELOG) entry added
+        - [x] [Documentation created/updated](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/development/doc_styleguide.md)
+        - [ ] API support added
+        - Tests
+          - [ ] Added for this feature/bug
+          - [ ] All builds are passing
+        - [ ] Conform by the [merge request performance guides](http://docs.gitlab.com/ce/development/merge_request_performance_guidelines.html)
+        - [ ] Conform by the [style guides](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/CONTRIBUTING.md#style-guides)
+        - [ ] Branch has no merge conflicts with `master` (if you do - rebase it please)
+        - [x] [Squashed related commits together](https://git-scm.com/book/en/Git-Tools-Rewriting-History#Squashing-Commits)
+
+        ## What are the relevant issue numbers?
+    color: '#E24329'
+    ts: 1475776449
+    footer: 'Created by <https://gitlab.com/glensc|Elan Ruusamäe>'
+    fields:
+      - title: Assignee
+        value: '<https://gitlab.com/smcgivern|Sean McGivern>'
+        short: true
+      - title: Labels
+        value: 'Community contribution, Documentation'
+        short: true
+      - title: Milestone
+        value: '8.15'
+        short: true
+  -
+    - 'GitLab/merge_request-6721.json'
+
+# vim:ts=2:sw=2:et

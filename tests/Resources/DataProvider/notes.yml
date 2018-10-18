@@ -1,49 +1,47 @@
 -
-    - 'https://gitlab.com/gitlab-org/gitlab-ce/issues/31422#note_28249314'
-    -
-        namespace: gitlab-org/
-        project_path: gitlab-org/gitlab-ce
-        type: issues
-        repo: gitlab-ce
-        number: '31422'
-        id: '28249314'
-    -
-        title: '<https://gitlab.com/gitlab-org/gitlab-ce/issues/31422#note_28249314|#31422>: Note on issue #31422: View issue / merge request state in unfurled issue link in Slack'
-        text: |
-            @victorwu by default, Slack's proxy servers will make the request to the URL. This means a number of things:
-            a) if the server is inaccessible to the general internets, it won't unfurl
-            b) if the page requires authentication, it won't unfurl
-            
-            With a Slack App, you can do [authenticated unfurls](https://api.slack.com/docs/message-link-unfurling#authenticated_unfurls) whereby you listen to an event with a particular URL pattern and then can unfurl the link.
-            
-            Unfortunately, because the Slack App doesn't have a URL parameter (i.e. you can't tell it that my GitHub instance is https://job.gitlap.com/*) this means that self-hosted GitLab instances will need manual App configuration. Slack are looking into what can be done about this in the future.
-            
-            For now, we can certainly improve the unfurls for GitLab.com and also provide private issues with authenticated unfurls on GitLab.com. We can also use unfurl events to make links [interactive](https://api.slack.com/docs/message-link-unfurling#interactive) like this:
-            
-            ![app_unfurls_buttons](/uploads/729df963fe3a2e43e5ec6ff449808184/app_unfurls_buttons.png)
-        color: '#E24329'
-        ts: 1493192433
-        footer: 'Created by <https://gitlab.com/mydigitalself|Mike Bartlett>'
-        fields: {  }
-    -
-        - 'GitLab/issue-31422.json'
-        - 'GitLab/note.json'
+  - 'https://gitlab.com/gitlab-org/gitlab-ce/issues/31422#note_28249314'
+  - namespace: gitlab-org/
+    project_path: gitlab-org/gitlab-ce
+    type: issues
+    repo: gitlab-ce
+    number: '31422'
+    id: '28249314'
+  - title: '<https://gitlab.com/gitlab-org/gitlab-ce/issues/31422#note_28249314|#31422>: Note on issue #31422: View issue / merge request state in unfurled issue link in Slack'
+    text: |
+        @victorwu by default, Slack's proxy servers will make the request to the URL. This means a number of things:
+        a) if the server is inaccessible to the general internets, it won't unfurl
+        b) if the page requires authentication, it won't unfurl
+
+        With a Slack App, you can do [authenticated unfurls](https://api.slack.com/docs/message-link-unfurling#authenticated_unfurls) whereby you listen to an event with a particular URL pattern and then can unfurl the link.
+
+        Unfortunately, because the Slack App doesn't have a URL parameter (i.e. you can't tell it that my GitHub instance is https://job.gitlap.com/*) this means that self-hosted GitLab instances will need manual App configuration. Slack are looking into what can be done about this in the future.
+
+        For now, we can certainly improve the unfurls for GitLab.com and also provide private issues with authenticated unfurls on GitLab.com. We can also use unfurl events to make links [interactive](https://api.slack.com/docs/message-link-unfurling#interactive) like this:
+
+        ![app_unfurls_buttons](/uploads/729df963fe3a2e43e5ec6ff449808184/app_unfurls_buttons.png)
+    color: '#E24329'
+    ts: 1493192433
+    footer: 'Created by <https://gitlab.com/mydigitalself|Mike Bartlett>'
+    fields: {  }
+  -
+    - 'GitLab/issue-31422.json'
+    - 'GitLab/note.json'
 -
-    - 'https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721#note_19288529'
-    -
-        namespace: gitlab-org/
-        project_path: gitlab-org/gitlab-ce
-        type: merge_requests
-        repo: gitlab-ce
-        number: '6721'
-        id: '19288529'
-    -
-        title: '<https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721#note_19288529|#6721>: Note on merge request #6721: Update custom_hooks.md for chained hooks support'
-        text: '@glensc I''ve got some grammar nitpicks, but otherwise this is fine by me! I can fix those in a separate branch if you''re done with this.'
-        color: '#E24329'
-        ts: 1480594445
-        footer: 'Created by <https://gitlab.com/smcgivern|Sean McGivern>'
-        fields: {  }
-    -
-        - 'GitLab/notes-6721.json'
-        - 'GitLab/merge_request-6721.json'
+  - 'https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721#note_19288529'
+  - namespace: gitlab-org/
+    project_path: gitlab-org/gitlab-ce
+    type: merge_requests
+    repo: gitlab-ce
+    number: '6721'
+    id: '19288529'
+  - title: '<https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721#note_19288529|#6721>: Note on merge request #6721: Update custom_hooks.md for chained hooks support'
+    text: '@glensc I''ve got some grammar nitpicks, but otherwise this is fine by me! I can fix those in a separate branch if you''re done with this.'
+    color: '#E24329'
+    ts: 1480594445
+    footer: 'Created by <https://gitlab.com/smcgivern|Sean McGivern>'
+    fields: {  }
+  -
+    - 'GitLab/notes-6721.json'
+    - 'GitLab/merge_request-6721.json'
+
+# vim:ts=2:sw=2:et
