@@ -6,9 +6,9 @@ class MergeRequest extends AbstractRouteHandler
 {
     protected function getDetails(array $parts)
     {
-        $object = $this->apiClient->merge_requests->show($parts['project_path'], $parts['number']);
-        $this->debug('merge_request', ['merge_request' => $object]);
+        $merge_request = $this->apiClient->merge_requests->show($parts['project_path'], $parts['number']);
+        $this->debug('merge_request', ['merge_request' => $merge_request]);
 
-        return $object;
+        return $merge_request;
     }
 }
