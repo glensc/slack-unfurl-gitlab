@@ -3,7 +3,7 @@
 namespace GitlabSlackUnfurl\Test;
 
 use Gitlab;
-use GitlabSlackUnfurl\Route\MergeRequest;
+use GitlabSlackUnfurl\Route;
 use Pimple\Container;
 use Psr\Log\NullLogger;
 use SlackUnfurl\SlackClient;
@@ -31,8 +31,16 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         $app[SlackClient::class] = new SlackClient('');
         $app[NullLogger::class] = new NullLogger();
 
-        $app[MergeRequest::class] = function ($app) {
-            return new MergeRequest(
+        $app[Route\MergeRequest::class] = function ($app) {
+            return new Route\MergeRequest(
+                $app[Gitlab\Client::class],
+                $app[SlackClient::class],
+                $app[NullLogger::class]
+            );
+        };
+
+        $app[Route\Issue::class] = function ($app) {
+            return new Route\Issue(
                 $app[Gitlab\Client::class],
                 $app[SlackClient::class],
                 $app[NullLogger::class]
