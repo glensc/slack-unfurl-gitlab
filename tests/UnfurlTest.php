@@ -32,6 +32,20 @@ class UnfurlTest extends TestCase
         $this->assertEquals($expected, $result);
     }
 
+    /**
+     * @param string $url
+     * @param array $parts
+     * @param array $expected
+     * @dataProvider noteDataProvider
+     */
+    public function testNote(string $url, array $parts, array $expected): void
+    {
+        /** @var Route\Note $unfurler */
+        $unfurler = $this->app[Route\Note::class];
+        $result = $unfurler->unfurl($url, $parts);
+        $this->assertEquals($expected, $result);
+    }
+
     public function issueDataProvider(): array
     {
         return [
@@ -93,6 +107,29 @@ class UnfurlTest extends TestCase
                             'short' => true,
                         ],
                     ],
+                ],
+            ],
+        ];
+    }
+
+    public function noteDataProvider(): array
+    {
+        return [
+            [
+                'https://gitlab.com/gitlab-org/gitlab-ce/issues/31422#note_28249314',
+                [
+                    'namespace' => 'gitlab-org/',
+                    'project_path' => 'gitlab-org/gitlab-ce',
+                    'repo' => 'gitlab-ce',
+                    'number' => '31422',
+                    'id' => '28249314',
+                ],
+                [
+                    'title' => '<https://gitlab.com/gitlab-org/gitlab-ce/issues/31422#note_28249314|#31422>: Note 28249314 for 31422',
+                    'color' => '#E24329',
+                    'ts' => 1493192433,
+                    'footer' => 'Created by <https://gitlab.com/mydigitalself|Mike Bartlett>',
+                    'fields' => [],
                 ],
             ],
         ];
