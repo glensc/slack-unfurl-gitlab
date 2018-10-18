@@ -50,21 +50,19 @@ class GitlabUnfurlServiceProvider implements ServiceProviderInterface, EventList
             return new Route\GitLabRoutes($app['gitlab.domain']);
         };
 
-        $app[Route\Issue::class] = function ($app) {
-            return new Route\Issue(
-                $app[Gitlab\Client::class],
-                $app[SlackClient::class],
-                $app['logger']
-            );
+        $routeFactory = function ($class) use ($app) {
+            $app[$class] = function ($app) use ($class) {
+                return new $class(
+                    $app[Gitlab\Client::class],
+                    $app[SlackClient::class],
+                    $app['logger']
+                );
+            };
         };
 
-        $app[Route\MergeRequest::class] = function ($app) {
-            return new Route\MergeRequest(
-                $app[Gitlab\Client::class],
-                $app[SlackClient::class],
-                $app['logger']
-            );
-        };
+        $routeFactory(Route\MergeRequest::class);
+        $routeFactory(Route\Issue::class);
+        $routeFactory(Route\Note::class);
     }
 
     public function subscribe(Container $app, EventDispatcherInterface $dispatcher)

@@ -121,7 +121,7 @@ class UnfurlTest extends TestCase
                         "- [ ] Branch has no merge conflicts with `master` (if you do - rebase it please)\n" .
                         "- [x] [Squashed related commits together](https://git-scm.com/book/en/Git-Tools-Rewriting-History#Squashing-Commits)\n" .
                         "\n" .
-                        "## What are the relevant issue numbers?",
+                        '## What are the relevant issue numbers?',
                     'color' => '#E24329',
                     'ts' => 1475776449,
                     'footer' => 'Created by <https://gitlab.com/glensc|Elan Ruusamäe>',
@@ -171,7 +171,7 @@ class UnfurlTest extends TestCase
                         "\n" .
                         "For now, we can certainly improve the unfurls for GitLab.com and also provide private issues with authenticated unfurls on GitLab.com. We can also use unfurl events to make links [interactive](https://api.slack.com/docs/message-link-unfurling#interactive) like this:\n" .
                         "\n" .
-                        "![app_unfurls_buttons](/uploads/729df963fe3a2e43e5ec6ff449808184/app_unfurls_buttons.png)",
+                        '![app_unfurls_buttons](/uploads/729df963fe3a2e43e5ec6ff449808184/app_unfurls_buttons.png)',
                     'color' => '#E24329',
                     'ts' => 1493192433,
                     'footer' => 'Created by <https://gitlab.com/mydigitalself|Mike Bartlett>',
