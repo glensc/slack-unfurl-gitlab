@@ -20,5 +20,22 @@
         short: true
   -
     - GitLab/issue-12733.json
+-
+  - https://gitlab.com/glensc/playground/issues/1
+  - namespace: glensc/
+    project_path: glensc/playground
+    repo: playground
+    number: 1
+  - title: '<https://gitlab.com/glensc/playground/issues/1|#1>: Issue with no description'
+    text: ''
+    color: '#E24329'
+    ts: 1540200871
+    footer: 'Created by <https://gitlab.com/glensc|Elan Ruusamäe>'
+    fields:
+      - title: Assignee
+        value: '<https://gitlab.com/glensc|Elan Ruusamäe>'
+        short: true
+  -
+    - GitLab/issue-1.json
 
 # vim:ts=2:sw=2:et
