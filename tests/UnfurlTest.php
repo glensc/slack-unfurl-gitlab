@@ -22,7 +22,7 @@ class UnfurlTest extends TestCase
     {
         $router = new GitLabRoutes($this->domain);
         $match = $router->match($url)[1];
-        $this->assertEquals($match, $parts);
+        $this->assertEquals($parts, $match);
 
         /** @var Route\Issue $unfurler */
         $unfurler = $this->getRouteHandler(Route\Issue::class, $responses);
@@ -42,7 +42,7 @@ class UnfurlTest extends TestCase
     {
         $router = new GitLabRoutes($this->domain);
         $match = $router->match($url)[1];
-        $this->assertEquals($match, $parts);
+        $this->assertEquals($parts, $match);
 
         /** @var Route\MergeRequest $unfurler */
         $unfurler = $this->getRouteHandler(Route\MergeRequest::class, $responses);
@@ -62,7 +62,7 @@ class UnfurlTest extends TestCase
     {
         $router = new GitLabRoutes($this->domain);
         $match = $router->match($url)[1];
-        $this->assertEquals($match, $parts);
+        $this->assertEquals($parts, $match);
 
         /** @var Route\Note $unfurler */
         $unfurler = $this->getRouteHandler(Route\Note::class, $responses);
