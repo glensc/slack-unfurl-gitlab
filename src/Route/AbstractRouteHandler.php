@@ -36,7 +36,7 @@ abstract class AbstractRouteHandler
         $this->utc = new DateTimeZone('UTC');
     }
 
-    abstract protected function getDetails(array $parts);
+    abstract protected function getDetails(array $parts): array;
 
     public function unfurl(string $url, array $parts): ?array
     {

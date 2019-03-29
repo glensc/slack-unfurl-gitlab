@@ -4,7 +4,7 @@ namespace GitlabSlackUnfurl\Route;
 
 class Issue extends AbstractRouteHandler
 {
-    protected function getDetails(array $parts)
+    protected function getDetails(array $parts): array
     {
         $project_id = $parts['project_path'];
         $issue_iid = $parts['number'];
