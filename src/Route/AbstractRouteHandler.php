@@ -9,9 +9,9 @@ use Gitlab;
 use GitlabSlackUnfurl\Traits\SanitizeTextTrait;
 use Iterator;
 use Psr\Log\LoggerInterface;
-use SlackUnfurl\LoggerTrait;
 use SlackUnfurl\SlackClient;
 use function is_array;
+use SlackUnfurl\Traits\LoggerTrait;
 
 abstract class AbstractRouteHandler
 {
