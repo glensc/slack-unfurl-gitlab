@@ -17,7 +17,7 @@ class GitlabUnfurlServiceProvider implements ServiceProviderInterface, EventList
     /**
      * {@inheritdoc}
      */
-    public function register(Container $app)
+    public function register(Container $app): void
     {
         $app['gitlab.url'] = getenv('GITLAB_URL');
         $app['gitlab.api_token'] = getenv('GITLAB_API_TOKEN');
@@ -65,7 +65,7 @@ class GitlabUnfurlServiceProvider implements ServiceProviderInterface, EventList
         $routeFactory(Route\Note::class);
     }
 
-    public function subscribe(Container $app, EventDispatcherInterface $dispatcher)
+    public function subscribe(Container $app, EventDispatcherInterface $dispatcher): void
     {
         $dispatcher->addSubscriber($app[GitlabUnfurler::class]);
     }

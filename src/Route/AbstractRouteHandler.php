@@ -38,7 +38,7 @@ abstract class AbstractRouteHandler
 
     abstract protected function getDetails(array $parts);
 
-    public function unfurl(string $url, array $parts)
+    public function unfurl(string $url, array $parts): ?array
     {
         $object = $this->getDetails($parts);
         if (!$object) {
@@ -75,14 +75,14 @@ abstract class AbstractRouteHandler
         return '#E24329';
     }
 
-    protected function getAssignees(array $assignees)
+    protected function getAssignees(array $assignees): Generator
     {
         foreach ($assignees as $assignee) {
             yield $this->formatAuthor($assignee);
         }
     }
 
-    protected function formatTitle(array $object)
+    protected function formatTitle(array $object): string
     {
         return sprintf(
             '<%s|#%d>: %s',
@@ -97,7 +97,7 @@ abstract class AbstractRouteHandler
         return (new DateTime($object['created_at'], $this->utc))->getTimestamp();
     }
 
-    protected function formatAuthor(?array $author)
+    protected function formatAuthor(?array $author): ?string
     {
         if (!$author) {
             return null;

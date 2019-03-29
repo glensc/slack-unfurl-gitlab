@@ -46,14 +46,14 @@ class GitlabUnfurler implements EventSubscriberInterface
     /**
      * {@inheritdoc}
      */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             Events::SLACK_UNFURL => ['unfurl', 10],
         ];
     }
 
-    public function unfurl(UnfurlEvent $event)
+    public function unfurl(UnfurlEvent $event): void
     {
         foreach ($event->getMatchingLinks($this->domain) as $link) {
             try {
