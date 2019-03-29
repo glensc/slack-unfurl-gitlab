@@ -33,10 +33,6 @@ class GitlabUnfurlServiceProvider implements ServiceProviderInterface, EventList
             return $client;
         };
 
-        $app[CommandResolver::class] = function ($app) {
-            return new CommandResolver($app);
-        };
-
         $app[GitlabUnfurler::class] = function ($app) {
             return new GitlabUnfurler(
                 $app[Route\GitLabRoutes::class],
