@@ -2,6 +2,7 @@
 
 namespace GitlabSlackUnfurl\Test;
 
+use Generator;
 use GitlabSlackUnfurl\Route\GitLabRoutes;
 
 class RouteTest extends TestCase
@@ -25,8 +26,10 @@ class RouteTest extends TestCase
         $this->assertEquals($parts, $match[1]);
     }
 
-    public function routesProvider(): array
+    public function routesProvider(): Generator
     {
-        return $this->loadYaml('routes.yml');
+        foreach ($this->loadYaml('routes.yml') as $item) {
+            yield $item[0] => $item;
+        }
     }
 }
