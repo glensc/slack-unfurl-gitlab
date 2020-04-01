@@ -11,10 +11,12 @@
   - namespace: gitlab-org/
     project_path: gitlab-org/gitlab-ce
     repo: gitlab-ce
+
 -
   - https://gitlab.com/gitlab-org
   - account
-  - namespace: gitlab-org
+  - account: gitlab-org
+
 -
   - https://gitlab.com/gitlab-org/gitlab-ce/issues/31422#note_28249314
   - note
@@ -24,6 +26,7 @@
     repo: gitlab-ce
     number: 31422
     id: 28249314
+
 -
   - https://gitlab.com/gitlab-org/gitlab-ce/blob/master/README.md
   - blob
@@ -32,6 +35,7 @@
     repo: gitlab-ce
     ref: master
     file_path: README.md
+
 -
   - https://gitlab.com/gitlab-org/gitlab-ce/blob/v10.5.4/README.md
   - blob
@@ -40,6 +44,7 @@
     repo: gitlab-ce
     ref: v10.5.4
     file_path: README.md
+
 -
   - https://gitlab.com/gitlab-org/gitlab-ce/blob/v10.5.4/README.md#L10
   - blob
@@ -49,6 +54,7 @@
     ref: v10.5.4
     file_path: README.md
     line: 10
+
 -
   - https://gitlab.com/gitlab-org/gitlab-ce/blob/v10.5.4/README.md#L19-28
   - blob
@@ -57,6 +63,7 @@
     repo: gitlab-ce
     ref: v10.5.4
     file_path: README.md#L19-28
+
 -
   - https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721
   - merge_request
@@ -64,30 +71,31 @@
     project_path: gitlab-org/gitlab-ce
     repo: gitlab-ce
     number: 6721
+
 -
   - https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721/commits
   - merge_request
-  -
-    namespace: gitlab-org/
+  - namespace: gitlab-org/
     project_path: gitlab-org/gitlab-ce
     repo: gitlab-ce
     number: 6721
+
 -
   - https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721/pipelines
   - merge_request
-  -
-    namespace: gitlab-org/
+  - namespace: gitlab-org/
     project_path: gitlab-org/gitlab-ce
     repo: gitlab-ce
     number: 6721
+
 -
   - https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721/diffs
   - merge_request
-  -
-    namespace: gitlab-org/
+  - namespace: gitlab-org/
     project_path: gitlab-org/gitlab-ce
     repo: gitlab-ce
     number: 6721
+
 -
   - https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721#note_16627667
   - note

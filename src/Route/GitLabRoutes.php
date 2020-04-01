@@ -26,25 +26,32 @@ class GitLabRoutes extends RouteMatcher
      */
     protected function buildRoutes($domain = 'gitlab.com'): array
     {
-        // https://gitlab.com/gitlab-org/gitlab-ce/blob/v10.5.4/lib/gitlab/path_regex.rb#L125
-        $path = '[a-zA-Z0-9_.][a-zA-Z0-9_.-]*';
+        // https://gitlab.com/gitlab-org/gitlab/-/blob/v12.7.8-ee/lib/gitlab/path_regex.rb#L129
+        $PATH_START_CHAR = '[a-zA-Z0-9_\.]';
+        $PATH_REGEX_STR = $PATH_START_CHAR . '[a-zA-Z0-9_\-\.]*';
+        $NAMESPACE_FORMAT_REGEX_JS = $PATH_REGEX_STR . '[a-zA-Z0-9_\-]|[a-zA-Z0-9_]';
 
         // subgroups up to 20 levels
         // https://docs.gitlab.com/ce/user/group/subgroups/index.html
-        $namespace = "(?P<namespace>(?:$path)((?:$path)/){0,19})";
+        // https://gitlab.com/gitlab-org/gitlab/-/blob/v12.7.8-ee/app/models/namespace.rb#L18
+        $NUMBER_OF_ANCESTORS_ALLOWED = 20;
+
+        // NOTE: backref is invalid syntax for php, so leave $NO_SUFFIX_REGEX empty
+        $NO_SUFFIX_REGEX = '';
+        $NAMESPACE_FORMAT_REGEX = "(?:{$NAMESPACE_FORMAT_REGEX_JS}){$NO_SUFFIX_REGEX}";
+        $FULL_NAMESPACE_FORMAT_REGEX = "(?P<namespace>$NAMESPACE_FORMAT_REGEX/){0,$NUMBER_OF_ANCESTORS_ALLOWED}(?P<repo>{$NAMESPACE_FORMAT_REGEX})";
 
         $base = "(?:https://\Q{$domain}\E/)?";
-        $repo = '(?P<repo>[^/]+)';
-        $nwo = "${base}(?P<project_path>${namespace}${repo})";
+        $nwo = "${base}(?P<project_path>{$FULL_NAMESPACE_FORMAT_REGEX})";
         $line = 'L(?P<line>\d+)';
         $line2 = 'L(?P<line2>\d+)';
 
         return [
             'blob' => "^${nwo}/blob/(?P<ref>[^/]+)/(?P<file_path>.+?)(?:#${line}(?:-${line2})?)?$",
             'note' => "^${nwo}/(?P<type>issues|merge_requests)/(?P<number>\d+)#note_(?P<id>\d+)",
-            'issue' => "^${nwo}/issues/(?P<number>\d+)$",
+            'issue' => "^${nwo}/(?:-/)?issues/(?P<number>\d+)$",
             'merge_request' => "^${nwo}/merge_requests/(?P<number>\d+)(/(commits|pipelines|diffs))?$",
-            'account' => "^${base}${namespace}$",
+            'account' => "^${base}(?P<account>{$NAMESPACE_FORMAT_REGEX})$",
             'project' => "^${nwo}$",
         ];
     }
