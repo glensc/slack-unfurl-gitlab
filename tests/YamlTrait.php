@@ -14,7 +14,7 @@ trait YamlTrait
         return Yaml::parse($contents);
     }
 
-    protected function dumpYaml(string $name, array $data)
+    protected function dumpYaml(string $name, array $data): void
     {
         $fileName = $this->getDataProviderFilename($name);
 

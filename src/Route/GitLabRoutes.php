@@ -47,10 +47,10 @@ class GitLabRoutes extends RouteMatcher
         $line2 = 'L(?P<line2>\d+)';
 
         return [
-            'blob' => "^${nwo}/blob/(?P<ref>[^/]+)/(?P<file_path>.+?)(?:#${line}(?:-${line2})?)?$",
-            'note' => "^${nwo}/(?P<type>issues|merge_requests)/(?P<number>\d+)#note_(?P<id>\d+)",
+            'blob' => "^${nwo}/(?:-/)?blob/(?P<ref>[^/]+)/(?P<file_path>.+?)(?:#${line}(?:-${line2})?)?$",
+            'note' => "^${nwo}/(?:-/)?(?P<type>issues|merge_requests)/(?P<number>\d+)#note_(?P<id>\d+)",
             'issue' => "^${nwo}/(?:-/)?issues/(?P<number>\d+)$",
-            'merge_request' => "^${nwo}/merge_requests/(?P<number>\d+)(/(commits|pipelines|diffs))?$",
+            'merge_request' => "^${nwo}/(?:-/)?merge_requests/(?P<number>\d+)(/(commits|pipelines|diffs))?$",
             'account' => "^${base}(?P<account>{$NAMESPACE_FORMAT_REGEX})$",
             'project' => "^${nwo}$",
         ];

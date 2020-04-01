@@ -106,4 +106,75 @@
     number: 6721
     id: 16627667
 
+# GitLab 12.6 changed url type
+-
+  - https://gitlab.com/gitlab-org/gitlab/-/issues/18758
+  - issue
+  - namespace: gitlab-org/
+    project_path: gitlab-org/gitlab
+    repo: gitlab
+    number: 18758
+
+-
+  - https://gitlab.com/gitlab-org/gitlab/-/issues/18758#note_215017135
+  - note
+  - namespace: gitlab-org/
+    project_path: gitlab-org/gitlab
+    repo: gitlab
+    number: 18758
+    type: issues
+    id: 215017135
+
+-
+  - https://gitlab.com/gitlab-org/gitlab/-/merge_requests/19762
+  - merge_request
+  - namespace: gitlab-org/
+    project_path: gitlab-org/gitlab
+    repo: gitlab
+    number: 19762
+
+-
+  - https://gitlab.com/gitlab-org/gitlab/-/merge_requests/19762/commits
+  - merge_request
+  - namespace: gitlab-org/
+    project_path: gitlab-org/gitlab
+    repo: gitlab
+    number: 19762
+
+-
+  - https://gitlab.com/gitlab-org/gitlab/-/merge_requests/19762/pipelines
+  - merge_request
+  - namespace: gitlab-org/
+    project_path: gitlab-org/gitlab
+    repo: gitlab
+    number: 19762
+
+-
+   - https://gitlab.com/gitlab-org/gitlab/-/merge_requests/19762/diffs
+   - merge_request
+   - namespace: gitlab-org/
+     project_path: gitlab-org/gitlab
+     repo: gitlab
+     number: 19762
+
+-
+  - https://gitlab.com/gitlab-org/gitlab/-/merge_requests/19762#note_245343659
+  - note
+  - namespace: gitlab-org/
+    project_path: gitlab-org/gitlab
+    repo: gitlab
+    number: 19762
+    type: merge_requests
+    id: 245343659
+
+-
+  - https://gitlab.com/gitlab-org/gitlab/-/blob/v12.7.8-ee/lib/gitlab/path_regex.rb#L129
+  - blob
+  - namespace: gitlab-org/
+    project_path: gitlab-org/gitlab
+    repo: gitlab
+    ref: v12.7.8-ee
+    file_path: lib/gitlab/path_regex.rb
+    line: 129
+
 # vim:ts=2:sw=2:et
