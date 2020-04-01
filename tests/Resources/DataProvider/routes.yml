@@ -79,6 +79,7 @@
     project_path: gitlab-org/gitlab-ce
     repo: gitlab-ce
     number: 6721
+    view: commits
 
 -
   - https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721/pipelines
@@ -87,6 +88,7 @@
     project_path: gitlab-org/gitlab-ce
     repo: gitlab-ce
     number: 6721
+    view: pipelines
 
 -
   - https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721/diffs
@@ -95,6 +97,7 @@
     project_path: gitlab-org/gitlab-ce
     repo: gitlab-ce
     number: 6721
+    view: diffs
 
 -
   - https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721#note_16627667
@@ -140,6 +143,7 @@
     project_path: gitlab-org/gitlab
     repo: gitlab
     number: 19762
+    view: commits
 
 -
   - https://gitlab.com/gitlab-org/gitlab/-/merge_requests/19762/pipelines
@@ -148,14 +152,16 @@
     project_path: gitlab-org/gitlab
     repo: gitlab
     number: 19762
+    view: pipelines
 
 -
-   - https://gitlab.com/gitlab-org/gitlab/-/merge_requests/19762/diffs
-   - merge_request
-   - namespace: gitlab-org/
-     project_path: gitlab-org/gitlab
-     repo: gitlab
-     number: 19762
+  - https://gitlab.com/gitlab-org/gitlab/-/merge_requests/19762/diffs
+  - merge_request
+  - namespace: gitlab-org/
+    project_path: gitlab-org/gitlab
+    repo: gitlab
+    number: 19762
+    view: diffs
 
 -
   - https://gitlab.com/gitlab-org/gitlab/-/merge_requests/19762#note_245343659
