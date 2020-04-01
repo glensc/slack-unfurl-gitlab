@@ -9,12 +9,12 @@ class RouteTest extends TestCase
     use YamlTrait;
 
     /**
-     * @param string $route
      * @param string $url
+     * @param string $route
      * @param array $parts
      * @dataProvider routesProvider
      */
-    public function testRoutes(string $route, string $url, array $parts): void
+    public function testRoutes(string $url, string $route, array $parts): void
     {
         $router = new GitLabRoutes($this->domain);
         $match = $router->match($url);
