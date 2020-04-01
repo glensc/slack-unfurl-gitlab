@@ -18,7 +18,10 @@ class RouteTest extends TestCase
     {
         $router = new GitLabRoutes($this->domain);
         $match = $router->match($url);
-        $this->assertEquals($route, $match[0]);
+        // create single object to compare datasets easier
+        $parts['url'] = $match[1]['url'] = $url;
+        $parts['route'] = $route;
+        $match[1]['route'] = $match[0];
         $this->assertEquals($parts, $match[1]);
     }
 
