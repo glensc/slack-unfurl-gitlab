@@ -61,10 +61,7 @@ abstract class AbstractRouteHandler
      * @param array $object
      * @return string
      */
-    protected function getText(array $object): string
-    {
-        return null;
-    }
+    abstract protected function getText(array $object): string;
 
     /**
      * @param array $object
