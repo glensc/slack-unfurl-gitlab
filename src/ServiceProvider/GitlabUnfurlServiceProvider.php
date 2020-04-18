@@ -22,18 +22,18 @@ class GitlabUnfurlServiceProvider implements ServiceProviderInterface, EventList
         $app['gitlab.url'] = getenv('GITLAB_URL');
         $app['gitlab.api_token'] = getenv('GITLAB_API_TOKEN');
 
-        $app['gitlab.domain'] = function ($app) {
+        $app['gitlab.domain'] = static function ($app) {
             return parse_url($app['gitlab.url'], PHP_URL_HOST);
         };
 
-        $app[Gitlab\Client::class] = function ($app) {
+        $app[Gitlab\Client::class] = static function ($app) {
             $client = Gitlab\Client::create($app['gitlab.url']);
             $client->authenticate($app['gitlab.api_token'], Gitlab\Client::AUTH_HTTP_TOKEN);
 
             return $client;
         };
 
-        $app[GitlabUnfurler::class] = function ($app) {
+        $app[GitlabUnfurler::class] = static function ($app) {
             return new GitlabUnfurler(
                 $app[Route\GitLabRoutes::class],
                 $app[CommandResolver::class],
@@ -42,12 +42,12 @@ class GitlabUnfurlServiceProvider implements ServiceProviderInterface, EventList
             );
         };
 
-        $app[Route\GitLabRoutes::class] = function ($app) {
+        $app[Route\GitLabRoutes::class] = static function ($app) {
             return new Route\GitLabRoutes($app['gitlab.domain']);
         };
 
-        $routeFactory = function ($class) use ($app) {
-            $app[$class] = function ($app) use ($class) {
+        $routeFactory = static function ($class) use ($app) {
+            $app[$class] = static function ($app) use ($class) {
                 return new $class(
                     $app[Gitlab\Client::class],
                     $app[SlackClient::class],
