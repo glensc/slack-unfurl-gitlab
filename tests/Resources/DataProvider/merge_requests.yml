@@ -4,6 +4,7 @@
     project_path: gitlab-org/gitlab-ce
     repo: gitlab-ce
     number: '6721'
+    view: commits
   - title: '<https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721/commits|#6721>: Update custom_hooks.md for chained hooks support'
     text: |
         ## What does this MR do?
