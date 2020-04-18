@@ -3,6 +3,7 @@
 namespace GitlabSlackUnfurl\Event\Subscriber;
 
 use GitlabSlackUnfurl\Route;
+use GitlabSlackUnfurl\Route\AbstractRouteHandler;
 use Psr\Log\LoggerInterface;
 use SlackUnfurl\CommandResolver;
 use SlackUnfurl\Event\Events;
@@ -43,9 +44,6 @@ class GitlabUnfurler implements EventSubscriberInterface
         $this->logger = $logger;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public static function getSubscribedEvents(): array
     {
         return [
@@ -67,10 +65,11 @@ class GitlabUnfurler implements EventSubscriberInterface
         }
     }
 
-    private function unfurlByUrl(string $url)
+    private function unfurlByUrl(string $url): ?array
     {
         [$router, $matches] = $this->routeMatcher->match($url);
 
+        /** @var AbstractRouteHandler $command */
         $command = $this->commandResolver
             ->configure(self::ROUTES)
             ->resolve($router);
