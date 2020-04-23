@@ -23,4 +23,4 @@ Technical details:
 - route matches are defined in [src/Route/GitLabRoutes.php::buildRoutes()](src/Route/GitLabRoutes.php)
 - handlers are defined in [src/Event/Subscriber/GitlabUnfurler.php::ROUTES](src/Event/Subscriber/GitlabUnfurler.php)
 
-For url to be unfurled, url pattern must be defined in `GitLabRoutew`, and handler must be also present in `GitlabUnfurler`.
+For url to be unfurled, url pattern must be defined in `GitLabRoutes`, and handler must be also present in `GitlabUnfurler`.
