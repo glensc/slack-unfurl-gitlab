@@ -27,8 +27,8 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         $app = new Container();
 
         $app['gitlab.url'] = 'https://gitlab.com';
-        $app['gitlab.api_token'] = getenv('GITLAB_TOKEN') ?: '';
-        $app['gitlab.mock_client'] = getenv('CI') ?: true;
+        $app['gitlab.api_token'] = $_SERVER['GITLAB_API_TOKEN'] ?? '';
+        $app['gitlab.mock_client'] = (bool)($_SERVER['CI'] ?? true);
 
         $app[Gitlab\Client::class] = function ($app) {
             $client = new Gitlab\Client();
