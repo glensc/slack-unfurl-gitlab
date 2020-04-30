@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\Dotenv\Dotenv;
+
 if (!file_exists($autoload = dirname(__DIR__) . '/vendor/autoload.php')) {
     echo <<<EOF
 
@@ -12,3 +14,7 @@ EOF;
     exit(1);
 }
 require $autoload;
+
+if (file_exists($envFile = __DIR__ . '/../.env')) {
+    (new Dotenv())->load($envFile);
+}
