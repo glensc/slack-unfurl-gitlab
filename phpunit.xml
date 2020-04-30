@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- https://phpunit.de/manual/current/en/appendixes.configuration.html -->
+<!-- https://phpunit.readthedocs.io/en/latest/configuration.html -->
 <phpunit
 	backupGlobals="false"
 	backupStaticAttributes="false"
@@ -18,12 +18,14 @@
 		</testsuite>
 	</testsuites>
 
-	<!--
 	<php>
+	<!--
+		<server name="SYMFONY_PHPUNIT_VERSION" value="4.8" />
 		<ini name="date.timezone" value="UTC" />
 		<server name="KERNEL_DIR" value="/path/to/your/app/" />
-	</php>
+		<env name="KERNEL_CLASS" value="App\Kernel"/>
 	-->
+	</php>
 
 	<!-- for code coverage -->
 	<filter>
