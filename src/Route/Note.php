@@ -2,6 +2,7 @@
 
 namespace GitlabSlackUnfurl\Route;
 
+use Gitlab\Api\Projects;
 use InvalidArgumentException;
 use RuntimeException;
 
@@ -76,7 +77,7 @@ class Note extends AbstractRouteHandler
     private function getCommitNote(string $project_id, string $commit, int $note_id): array
     {
         // unfortunately no api to get single note by id
-        $discussions = $this->apiClient->projects->getRepositoryCommitDiscussions($project_id, $commit);
+        $discussions = $this->getRepositoryCommitDiscussions($project_id, $commit);
 
         // re-index with id
         foreach ($discussions as $discussion) {
@@ -111,5 +112,27 @@ class Note extends AbstractRouteHandler
     protected function getFields(array $object): array
     {
         return [];
+    }
+
+    /**
+     * API to fetch repository/commits/.../discussions.
+     *
+     * Until upstream has support for this:
+     * - https://github.com/m4tthumphrey/php-gitlab-api/issues/347
+     *
+     * @param string $project_id
+     * @param string $commit_id
+     * @return mixed
+     */
+    private function getRepositoryCommitDiscussions(string $project_id, string $commit_id): array
+    {
+        $api = new class($this->apiClient) extends Projects {
+            public function getRepositoryCommitDiscussions($project_id, $commit_id)
+            {
+                return $this->get($this->getProjectPath($project_id, 'repository/commits/' . $this->encodePath($commit_id)) . '/discussions');
+            }
+        };
+
+        return $api->getRepositoryCommitDiscussions($project_id, $commit_id);
     }
 }
