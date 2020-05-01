@@ -18,7 +18,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     protected $url;
     protected $domain;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->url = 'https://gitlab.com';
         $this->domain = parse_url($this->url, PHP_URL_HOST);
