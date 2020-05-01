@@ -28,8 +28,11 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     {
         $app = new Container();
 
+        $app['debug'] = true;
+        $app['ci'] = ($_SERVER['CI'] ?? '') === 'true';
+        $app['gitlab.mock_client'] = $app['ci'] ?: $app['debug'];
+
         $app['gitlab.url'] = 'https://gitlab.com';
-        $app['gitlab.mock_client'] = (bool)($_SERVER['CI'] ?? true);
         $app['gitlab.api_token'] = $app['gitlab.mock_client'] ? null : ($_SERVER['GITLAB_API_TOKEN'] ?? '');
 
         $app['history'] = new ArrayObject();
