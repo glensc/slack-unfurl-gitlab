@@ -25,9 +25,10 @@ class UnfurlTest extends TestCase
         $this->assertEquals($parts, $match);
 
         /** @var Route\Issue $unfurler */
-        $unfurler = $this->getRouteHandler(Route\Issue::class, $responses);
+        $unfurler = $this->getRouteHandler(Route\Issue::class, $responses, $history);
 
         $result = $unfurler->unfurl($url, $parts);
+        $this->assertCount(count($responses), $history);
         $this->assertEquals($expected, $result);
     }
 
@@ -45,9 +46,10 @@ class UnfurlTest extends TestCase
         $this->assertEquals($parts, $match);
 
         /** @var Route\MergeRequest $unfurler */
-        $unfurler = $this->getRouteHandler(Route\MergeRequest::class, $responses);
+        $unfurler = $this->getRouteHandler(Route\MergeRequest::class, $responses, $history);
 
         $result = $unfurler->unfurl($url, $parts);
+        $this->assertCount(count($responses), $history);
         $this->assertEquals($expected, $result);
     }
 
@@ -65,9 +67,10 @@ class UnfurlTest extends TestCase
         $this->assertEquals($parts, $match);
 
         /** @var Route\Note $unfurler */
-        $unfurler = $this->getRouteHandler(Route\Note::class, $responses);
+        $unfurler = $this->getRouteHandler(Route\Note::class, $responses, $history);
 
         $result = $unfurler->unfurl($url, $parts);
+        $this->assertCount(count($responses), $history);
         $this->assertEquals($expected, $result);
     }
 
