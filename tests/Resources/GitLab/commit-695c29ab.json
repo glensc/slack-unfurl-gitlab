@@ -1,0 +1,33 @@
+{
+    "id": "695c29abcf7dc2eabde8d59869abcea0923ce8fa",
+    "short_id": "695c29ab",
+    "created_at": "2020-04-24T07:12:46.000+00:00",
+    "parent_ids": [
+        "fd2e8aff432b820e884226494da36882c31ad33b"
+    ],
+    "title": "Update VERSION to 12.10.1-ee",
+    "message": "Update VERSION to 12.10.1-ee\n",
+    "author_name": "GitLab Release Tools Bot",
+    "author_email": "delivery-team+release-tools@gitlab.com",
+    "authored_date": "2020-04-24T07:12:46.000+00:00",
+    "committer_name": "GitLab Release Tools Bot",
+    "committer_email": "delivery-team+release-tools@gitlab.com",
+    "committed_date": "2020-04-24T07:12:46.000+00:00",
+    "web_url": "https://gitlab.com/gitlab-org/gitlab/-/commit/695c29abcf7dc2eabde8d59869abcea0923ce8fa",
+    "stats": {
+        "additions": 1,
+        "deletions": 1,
+        "total": 2
+    },
+    "status": "success",
+    "project_id": 278964,
+    "last_pipeline": {
+        "id": 139438990,
+        "sha": "695c29abcf7dc2eabde8d59869abcea0923ce8fa",
+        "ref": "v12.10.1-ee",
+        "status": "success",
+        "created_at": "2020-04-24T07:13:56.958Z",
+        "updated_at": "2020-04-24T08:04:52.520Z",
+        "web_url": "https://gitlab.com/gitlab-org/gitlab/pipelines/139438990"
+    }
+}

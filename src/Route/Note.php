@@ -74,10 +74,10 @@ class Note extends AbstractRouteHandler
         return $note;
     }
 
-    private function getCommitNote(string $project_id, string $commit, int $note_id): array
+    private function getCommitNote(string $project_id, string $sha, int $note_id): array
     {
         // unfortunately no api to get single note by id
-        $discussions = $this->getRepositoryCommitDiscussions($project_id, $commit);
+        $discussions = $this->getRepositoryCommitDiscussions($project_id, $sha);
 
         // re-index with id
         foreach ($discussions as $discussion) {
@@ -92,10 +92,11 @@ class Note extends AbstractRouteHandler
             throw new RuntimeException("Could not load note: {$note_id}");
         }
 
+        $commit = $this->apiClient->repositories->commit($project_id, $sha);
+
         // for formatTitle
-        $shortCommit = substr($commit, 0, 8);
-        $note['blurb'] = $shortCommit;
-        $note['title'] = "Comment on commit {$shortCommit}";
+        $note['blurb'] = $commit['short_id'];
+        $note['title'] = "Comment on commit {$commit['short_id']}: {$commit['title']}";
 
         return $note;
     }
