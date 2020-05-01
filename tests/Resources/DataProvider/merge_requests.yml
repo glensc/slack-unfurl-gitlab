@@ -1,11 +1,11 @@
 -
-  - 'https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721/commits'
+  - 'https://gitlab.com/gitlab-org/gitlab-foss/merge_requests/6721/commits'
   - namespace: gitlab-org/
-    project_path: gitlab-org/gitlab-ce
-    repo: gitlab-ce
+    project_path: gitlab-org/gitlab-foss
+    repo: gitlab-foss
     number: '6721'
     view: commits
-  - title: '<https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721/commits|#6721>: Update custom_hooks.md for chained hooks support'
+  - title: '<https://gitlab.com/gitlab-org/gitlab-foss/merge_requests/6721/commits|#6721>: Update custom_hooks.md for chained hooks support'
     text: |
         ## What does this MR do?
 
@@ -39,7 +39,7 @@
         value: '<https://gitlab.com/smcgivern|Sean McGivern>'
         short: true
       - title: Labels
-        value: 'Community contribution, Documentation'
+        value: 'Community contribution, documentation'
         short: true
       - title: Milestone
         value: '8.15'
