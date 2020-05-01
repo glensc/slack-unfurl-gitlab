@@ -9,22 +9,32 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use Http\Adapter\Guzzle6\Client as HttpClient;
+use LazyProperty\LazyPropertiesTrait;
 use Pimple\Container;
 use Psr\Log\NullLogger;
 use SlackUnfurl\SlackClient;
 
 abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
+    use LazyPropertiesTrait;
+
     protected $url;
     protected $domain;
+    /** @var Container */
+    protected $container;
+    /** @var HandlerStack */
+    protected $handlerStack;
+    /** @var ArrayObject */
+    private $history;
 
     public function setUp(): void
     {
         $this->url = 'https://gitlab.com';
         $this->domain = parse_url($this->url, PHP_URL_HOST);
+        $this->initLazyProperties(['container', 'handlerStack', 'history']);
     }
 
-    private function createContainer(): Container
+    protected function getContainer(): Container
     {
         $app = new Container();
 
@@ -63,24 +73,35 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         return $app;
     }
 
-    protected function getRouteHandler(string $class, array $responses, ArrayObject &$history = null)
+    protected function getHandlerStack()
     {
-        $app = $this->createContainer();
+        return $this->container[HandlerStack::class];
+    }
 
-        /** @var HandlerStack $handlerStack */
-        $handlerStack = $app[HandlerStack::class];
-        $history = $app['history'];
+    protected function getHistory()
+    {
+        return $this->container['history'];
+    }
+
+    protected function getGitlabClient(array $responses, ArrayObject &$history = null): Gitlab\Client
+    {
+        $history = $this->history;
 
         // set mock responses conditionally
-        if ($app['gitlab.mock_client']) {
+        if ($this->container['gitlab.mock_client']) {
             $mock = new MockHandler($responses);
-            $handlerStack->setHandler($mock);
+            $this->handlerStack->setHandler($mock);
         }
 
+        return $this->container[Gitlab\Client::class];
+    }
+
+    protected function getRouteHandler(string $class, array $responses, ArrayObject &$history = null)
+    {
         return new $class(
-            $app[Gitlab\Client::class],
-            $app[SlackClient::class],
-            $app[NullLogger::class]
+            $this->getGitlabClient($responses, $history),
+            $this->container[SlackClient::class],
+            $this->container[NullLogger::class]
         );
     }
 }
