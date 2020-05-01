@@ -10,7 +10,7 @@ class MergeRequest extends AbstractRouteHandler
         $this->debug('merge_request', ['merge_request' => $merge_request]);
 
         // for formatTitle
-        $merge_request['blurb'] = "#{$merge_request['iid']}";
+        $merge_request['blurb'] = "!{$merge_request['iid']}";
 
         return $merge_request;
     }

@@ -5,7 +5,7 @@
     repo: gitlab-foss
     number: '6721'
     view: commits
-  - title: '<https://gitlab.com/gitlab-org/gitlab-foss/merge_requests/6721/commits|#6721>: Update custom_hooks.md for chained hooks support'
+  - title: '<https://gitlab.com/gitlab-org/gitlab-foss/merge_requests/6721/commits|!6721>: Update custom_hooks.md for chained hooks support'
     text: |
         ## What does this MR do?
 
