@@ -82,9 +82,9 @@ abstract class AbstractRouteHandler
     protected function formatTitle(array $object): string
     {
         return sprintf(
-            '<%s|#%d>: %s',
+            '<%s|%s>: %s',
             $this->slackClient->urlencode($object['url']),
-            $object['iid'],
+            $this->slackClient->escape($object['blurb']),
             $this->slackClient->escape($object['title'])
         );
     }

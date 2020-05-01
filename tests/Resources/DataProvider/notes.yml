@@ -1,12 +1,12 @@
 -
-  - 'https://gitlab.com/gitlab-org/gitlab-ce/issues/31422#note_28249314'
+  - 'https://gitlab.com/gitlab-org/gitlab-foss/issues/31422#note_28249314'
   - namespace: gitlab-org/
-    project_path: gitlab-org/gitlab-ce
+    project_path: gitlab-org/gitlab-foss
     type: issues
-    repo: gitlab-ce
+    repo: gitlab-foss
     number: '31422'
     id: '28249314'
-  - title: '<https://gitlab.com/gitlab-org/gitlab-ce/issues/31422#note_28249314|#31422>: Note on issue #31422: View issue / merge request state in unfurled issue link in Slack'
+  - title: '<https://gitlab.com/gitlab-org/gitlab-foss/issues/31422#note_28249314|#31422>: Note on issue #31422: View issue / merge request state in unfurled issue link in Slack'
     text: |
         @victorwu by default, Slack's proxy servers will make the request to the URL. This means a number of things:
         a) if the server is inaccessible to the general internets, it won't unfurl
@@ -27,14 +27,14 @@
     - 'GitLab/issue-31422.json'
     - 'GitLab/note.json'
 -
-  - 'https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721#note_19288529'
+  - 'https://gitlab.com/gitlab-org/gitlab-foss/merge_requests/6721#note_19288529'
   - namespace: gitlab-org/
-    project_path: gitlab-org/gitlab-ce
+    project_path: gitlab-org/gitlab-foss
     type: merge_requests
-    repo: gitlab-ce
+    repo: gitlab-foss
     number: '6721'
     id: '19288529'
-  - title: '<https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/6721#note_19288529|#6721>: Note on merge request #6721: Update custom_hooks.md for chained hooks support'
+  - title: '<https://gitlab.com/gitlab-org/gitlab-foss/merge_requests/6721#note_19288529|!6721>: Note on merge request !6721: Update custom_hooks.md for chained hooks support'
     text: '@glensc I''ve got some grammar nitpicks, but otherwise this is fine by me! I can fix those in a separate branch if you''re done with this.'
     color: '#E24329'
     ts: 1480594445
@@ -43,5 +43,25 @@
   -
     - 'GitLab/notes-6721.json'
     - 'GitLab/merge_request-6721.json'
+
+-
+  - 'https://gitlab.com/gitlab-org/gitlab/-/commit/695c29abcf7dc2eabde8d59869abcea0923ce8fa#note_334686748'
+  - namespace: gitlab-org/
+    project_path: gitlab-org/gitlab
+    type: commit
+    repo: gitlab
+    number: '695c29abcf7dc2eabde8d59869abcea0923ce8fa'
+    id: '334686748'
+  - title: '<https://gitlab.com/gitlab-org/gitlab/-/commit/695c29abcf7dc2eabde8d59869abcea0923ce8fa#note_334686748|695c29ab>: Comment on commit 695c29ab: Update VERSION to 12.10.1-ee'
+    text: |
+      Test comment for gitlab slack unfurler:
+      - https://github.com/glensc/slack-unfurl-gitlab/pull/10
+    color: '#E24329'
+    ts: 1588272491
+    footer: 'Created by <https://gitlab.com/glensc|Elan Ruusamäe>'
+    fields: {  }
+  -
+    - 'GitLab/commit-695c29ab-discussions.json'
+    - 'GitLab/commit-695c29ab.json'
 
 # vim:ts=2:sw=2:et

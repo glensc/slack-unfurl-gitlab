@@ -182,5 +182,14 @@
     ref: v12.7.8-ee
     file_path: lib/gitlab/path_regex.rb
     line: 129
+-
+  - https://gitlab.com/gitlab-org/gitlab/-/commit/20b59dfb767bc9aca95a2d8c807aeb14bb713139#note_226969
+  - note
+  - namespace: gitlab-org/
+    project_path: gitlab-org/gitlab
+    repo: gitlab
+    type: commit
+    number: 20b59dfb767bc9aca95a2d8c807aeb14bb713139
+    id: 226969
 
 # vim:ts=2:sw=2:et

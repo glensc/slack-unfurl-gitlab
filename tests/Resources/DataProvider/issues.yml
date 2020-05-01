@@ -1,10 +1,10 @@
 -
-  - https://gitlab.com/gitlab-org/gitlab-ce/issues/12733
+  - https://gitlab.com/gitlab-org/gitlab-foss/issues/12733
   - namespace: gitlab-org/
-    project_path: gitlab-org/gitlab-ce
-    repo: gitlab-ce
+    project_path: gitlab-org/gitlab-foss
+    repo: gitlab-foss
     number: '12733'
-  - title: '<https://gitlab.com/gitlab-org/gitlab-ce/issues/12733|#12733>: Disable Unfurling for the login page'
+  - title: '<https://gitlab.com/gitlab-org/gitlab-foss/issues/12733|#12733>: Disable Unfurling for the login page'
     text: |
         When a project is private, and you paste it into something like slack, you get the message: "Sign In"
 
@@ -16,7 +16,7 @@
     footer: 'Created by <https://gitlab.com/jvanbaarsen|Jeroen van Baarsen>'
     fields:
       - title: Labels
-        value: 'Platform, external services, feature proposal'
+        value: 'external services, feature'
         short: true
   -
     - GitLab/issue-12733.json
