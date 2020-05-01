@@ -1,0 +1,31 @@
+[
+    {
+        "id": "4604744a1c64de00ff62e1e8a6766919923d2b41",
+        "individual_note": true,
+        "notes": [
+            {
+                "id": 334686748,
+                "type": null,
+                "body": "Test comment for gitlab slack unfurler:\n- https://github.com/glensc/slack-unfurl-gitlab/pull/10",
+                "attachment": null,
+                "author": {
+                    "id": 163557,
+                    "name": "Elan Ruusamäe",
+                    "username": "glensc",
+                    "state": "active",
+                    "avatar_url": "https://secure.gravatar.com/avatar/effff0989c8041ef98aaf916c7092d6d?s=80&d=identicon",
+                    "web_url": "https://gitlab.com/glensc"
+                },
+                "created_at": "2020-04-30T18:48:11.432Z",
+                "updated_at": "2020-04-30T18:48:11.432Z",
+                "system": false,
+                "noteable_id": null,
+                "noteable_type": "Commit",
+                "resolvable": false,
+                "confidential": null,
+                "noteable_iid": null,
+                "commands_changes": []
+            }
+        ]
+    }
+]
