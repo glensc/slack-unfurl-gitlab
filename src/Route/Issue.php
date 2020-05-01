@@ -12,6 +12,9 @@ class Issue extends AbstractRouteHandler
         $issue = $this->apiClient->issues->show($project_id, $issue_iid);
         $this->debug('issue', ['issue' => $issue]);
 
+        // for formatTitle
+        $issue['blurb'] = "#{$issue['iid']}";
+
         return $issue;
     }
 

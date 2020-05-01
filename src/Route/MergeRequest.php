@@ -9,6 +9,9 @@ class MergeRequest extends AbstractRouteHandler
         $merge_request = $this->apiClient->merge_requests->show($parts['project_path'], $parts['number']);
         $this->debug('merge_request', ['merge_request' => $merge_request]);
 
+        // for formatTitle
+        $merge_request['blurb'] = "#{$merge_request['iid']}";
+
         return $merge_request;
     }
 

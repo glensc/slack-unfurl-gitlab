@@ -41,8 +41,8 @@ class Note extends AbstractRouteHandler
         $note = $this->apiClient->issues->showComment($project_id, $issue_iid, $note_id);
 
         // for formatTitle
-        $note['iid'] = $note['noteable_iid'];
-        $note['title'] = "Note on issue #{$note['iid']}: {$issue['title']}";
+        $note['blurb'] = "#{$note['noteable_iid']}";
+        $note['title'] = "Note on issue {$note['blurb']}: {$issue['title']}";
 
         return $note;
     }
@@ -64,8 +64,8 @@ class Note extends AbstractRouteHandler
         $merge_request = $api->show($project_id, $merge_request_iid);
 
         // for formatTitle
-        $note['iid'] = $note['noteable_iid'];
-        $note['title'] = "Note on merge request #{$note['iid']}: {$merge_request['title']}";
+        $note['blurb'] = "!{$note['noteable_iid']}";
+        $note['title'] = "Note on merge request {$note['blurb']}: {$merge_request['title']}";
 
         return $note;
     }
