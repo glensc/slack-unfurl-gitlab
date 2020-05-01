@@ -2,10 +2,12 @@
 
 namespace GitlabSlackUnfurl\Test;
 
+use ArrayObject;
 use Gitlab;
 use GuzzleHttp;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Middleware;
 use Http\Adapter\Guzzle6\Client as HttpClient;
 use Pimple\Container;
 use Psr\Log\NullLogger;
@@ -27,11 +29,22 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         $app = new Container();
 
         $app['gitlab.url'] = 'https://gitlab.com';
-        $app['gitlab.api_token'] = $_SERVER['GITLAB_API_TOKEN'] ?? '';
         $app['gitlab.mock_client'] = (bool)($_SERVER['CI'] ?? true);
+        $app['gitlab.api_token'] = $app['gitlab.mock_client'] ? null : ($_SERVER['GITLAB_API_TOKEN'] ?? '');
 
-        $app[Gitlab\Client::class] = function ($app) {
-            $client = new Gitlab\Client();
+        $app['history'] = new ArrayObject();
+        $app[HandlerStack::class] = static function () {
+            return HandlerStack::create();
+        };
+        $app[Gitlab\Client::class] = static function ($app) {
+            /** @var HandlerStack $handlerStack */
+            $handlerStack = $app[HandlerStack::class];
+            $handlerStack->push(Middleware::history($app['history']));
+
+            $guzzle = new GuzzleHttp\Client(['handler' => $handlerStack]);
+            $httpClient = new HttpClient($guzzle);
+
+            $client = Gitlab\Client::createWithHttpClient($httpClient);
             $client->setUrl($app['gitlab.url']);
 
             if ($app['gitlab.api_token']) {
@@ -47,36 +60,24 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         return $app;
     }
 
-    protected function getRouteHandler(string $class, array $responses)
+    protected function getRouteHandler(string $class, array $responses, ArrayObject &$history = null)
     {
         $app = $this->createContainer();
 
+        /** @var HandlerStack $handlerStack */
+        $handlerStack = $app[HandlerStack::class];
+        $history = $app['history'];
+
+        // set mock responses conditionally
         if ($app['gitlab.mock_client']) {
-            $gitlabClient = $this->getGitLabMock($responses);
-        } else {
-            $gitlabClient = $app[Gitlab\Client::class];
+            $mock = new MockHandler($responses);
+            $handlerStack->setHandler($mock);
         }
 
         return new $class(
-            $gitlabClient,
+            $app[Gitlab\Client::class],
             $app[SlackClient::class],
             $app[NullLogger::class]
         );
-    }
-
-    /**
-     * Create GitLab client with each API call mocked in $responses.
-     *
-     * @param array $responses
-     * @return Gitlab\Client
-     */
-    private function getGitLabMock(array $responses)
-    {
-        $mock = new MockHandler($responses);
-        $handler = HandlerStack::create($mock);
-        $guzzle = new GuzzleHttp\Client(['handler' => $handler]);
-        $httpClient = new HttpClient($guzzle);
-
-        return Gitlab\Client::createWithHttpClient($httpClient);
     }
 }
