@@ -41,7 +41,7 @@ class GitLabRoutes extends RouteMatcher
         $NAMESPACE_FORMAT_REGEX = "(?:{$NAMESPACE_FORMAT_REGEX_JS}){$NO_SUFFIX_REGEX}";
         $FULL_NAMESPACE_FORMAT_REGEX = "(?P<namespace>$NAMESPACE_FORMAT_REGEX/){0,$NUMBER_OF_ANCESTORS_ALLOWED}(?P<repo>{$NAMESPACE_FORMAT_REGEX})";
 
-        $base = "(?:https://\Q{$domain}\E/)?";
+        $base = "https://\Q{$domain}\E/";
         $nwo = "${base}(?P<project_path>{$FULL_NAMESPACE_FORMAT_REGEX})";
         $line = 'L(?P<line>\d+)';
         $line2 = 'L(?P<line2>\d+)';
