@@ -107,7 +107,7 @@ class Note extends AbstractRouteHandler
      */
     protected function getText(array $object): string
     {
-        return $object['body'];
+        return $this->sanitizeText($object['body']);
     }
 
     protected function getFields(array $object): array
