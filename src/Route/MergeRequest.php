@@ -21,6 +21,6 @@ class MergeRequest extends AbstractRouteHandler
      */
     protected function getText(array $object): string
     {
-        return $object['description'];
+        return $this->sanitizeText($object['description']);
     }
 }
