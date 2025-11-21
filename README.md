@@ -4,6 +4,10 @@ GitLab links unfurler for [slack-unfurl].
 
 [slack-unfurl]: https://github.com/glensc/slack-unfurl
 
+## Screenshots
+
+![Issue Unfurl](https://user-images.githubusercontent.com/199095/177569276-375b1221-a8b4-48dc-b25a-d14759e6c364.png)
+
 ## Installation
 
 1. Install [slack-unfurl]
